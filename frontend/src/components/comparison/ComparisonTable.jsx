@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { Card, CardBody } from "../common/Card";
-import { objectiveLabelKey, fmtCurrency, fmtRange } from "../../utils/format";
+import { objectiveLabelKey, fmtCurrency, fmtRange, cropLabel } from "../../utils/format";
 
 export function ComparisonTable({ scenarios }) {
   const { t } = useTranslation();
 
   const rows = [
-    { labelKey: "comparison.crop", get: (sc) => t(`crops.${sc.input.crop}`) },
+    { labelKey: "comparison.crop", get: (sc) => cropLabel(t, sc.input.crop) },
     { labelKey: "comparison.soilRatings", get: (sc) => `N:${sc.result.soil_rating.N} P:${sc.result.soil_rating.P} K:${sc.result.soil_rating.K}` },
     { labelKey: "comparison.plan", get: (sc) => t(objectiveLabelKey(sc.result.plan.objective)) },
     { labelKey: "comparison.cost", get: (sc) => fmtCurrency(sc.result.plan.cost) },

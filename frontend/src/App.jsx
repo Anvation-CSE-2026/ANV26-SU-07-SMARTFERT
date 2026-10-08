@@ -8,6 +8,7 @@ import InputPage from "./pages/Input";
 import Recommendation from "./pages/Recommendation";
 import Explain from "./pages/Explain";
 import Comparison from "./pages/Comparison";
+import Season from "./pages/Season";
 
 export default function App() {
   const { i18n } = useTranslation();
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/recommendation" element={<Recommendation />} />
             <Route path="/explain" element={<Explain />} />
             <Route path="/compare" element={<Comparison />} />
+            <Route path="/season" element={<Season />} />
           </Routes>
         </main>
         <footer className="no-print text-center text-xs text-green-700/50 py-6">

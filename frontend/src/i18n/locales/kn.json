@@ -43,6 +43,7 @@
   "nav": {
     "dashboard": "ಮುಖಪುಟ",
     "newRecommendation": "ಸಲಹೆ ಪಡೆಯಿರಿ",
+    "mySeason": "ನನ್ನ ಋತು",
     "compare": "ಹೋಲಿಸಿ",
     "savedScenarios": "ಉಳಿಸಿದ ಯೋಜನೆಗಳು"
   },
@@ -353,5 +354,28 @@
     "howToRaise": "ಇದನ್ನು ಹೇಗೆ ಹೆಚ್ಚಿಸುವುದು",
     "note": "ಇದು ಒಂದು ಅಂದಾಜು ವಿಶ್ವಾಸಾರ್ಹತೆ ಸೂಚಕ, ನಿಖರತೆಯ ಸಂಖ್ಯಾಶಾಸ್ತ್ರೀಯ ಸಂಭವನೀಯತೆ ಅಲ್ಲ.",
     "syntheticModelNote": "ಸಿಂಥೆಟಿಕ್-ತರಬೇತಿ ಪಡೆದ ಮಾದರಿಗಳಿಂದ ಅಂದಾಜಿಸಲಾಗಿದೆ"
+  },
+  "season": {
+    "title": "ನನ್ನ ಋತು",
+    "export": "CSV ರಫ್ತು",
+    "allSeasons": "ಎಲ್ಲಾ ಋತುಗಳು",
+    "empty": "ಇನ್ನೂ ಇಲ್ಲಿ ಏನೂ ಇಲ್ಲ",
+    "emptyBody": "ನೀವು ಉಳಿಸುವ ಸಲಹೆಗಳು ಋತುವಿನ ಪ್ರಕಾರ ಇಲ್ಲಿ ತೋರಿಸಲಾಗುತ್ತದೆ.",
+    "localFallbackNote": "ನಿಮ್ಮ ಸ್ಥಳೀಯವಾಗಿ ಉಳಿಸಿದ ಯೋಜನೆಗಳನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ — ಪೂರ್ಣ ಋತು ಇತಿಹಾಸ, ಅನ್ವಯಿಕೆ ಲಾಗಿಂಗ್ ಮತ್ತು CSV ರಫ್ತಿಗಾಗಿ ಸರ್ವರ್‌ಗೆ ಸಂಪರ್ಕಿಸಿ.",
+    "demoBadge": "ಡೆಮೊ",
+    "statusPlanned": "ಯೋಜಿತ",
+    "statusApplied": "ಹಾಕಲಾಗಿದೆ",
+    "statusPartially": "ಭಾಗಶಃ ಹಾಕಲಾಗಿದೆ",
+    "statusSkipped": "ಬಿಟ್ಟುಬಿಡಲಾಗಿದೆ",
+    "cost": "ವೆಚ್ಚ",
+    "sustainability": "ಸುಸ್ಥಿರತೆ",
+    "confidence": "ವಿಶ್ವಾಸಾರ್ಹತೆ",
+    "reuseInputs": "ಈ ಇನ್‌ಪುಟ್‌ಗಳನ್ನು ಮರುಬಳಕೆ ಮಾಡಿ",
+    "logApplication": "ಅನ್ವಯಿಕೆ ಲಾಗ್ ಮಾಡಿ",
+    "applicationNotePlaceholder": "ನೀವು ಏನು ಹಾಕಿದ್ದೀರಿ? (ಐಚ್ಛಿಕ)",
+    "totalCost": "ಒಟ್ಟು ವೆಚ್ಚ",
+    "avgSustainability": "ಸರಾಸರಿ ಸುಸ್ಥಿರತೆ",
+    "avgConfidence": "ಸರಾಸರಿ ವಿಶ್ವಾಸಾರ್ಹತೆ",
+    "recommendationCount": "ಸಲಹೆಗಳು"
   }
 }

@@ -43,6 +43,7 @@
   "nav": {
     "dashboard": "హోమ్",
     "newRecommendation": "సలహా పొందండి",
+    "mySeason": "నా సీజన్",
     "compare": "పోల్చండి",
     "savedScenarios": "సేవ్ చేసిన ప్రణాళికలు"
   },
@@ -353,5 +354,28 @@
     "howToRaise": "దీన్ని ఎలా పెంచాలి",
     "note": "ఇది ఒక అంచనా నమ్మక సూచిక, ఖచ్చితత్వం యొక్క గణాంక సంభావ్యత కాదు.",
     "syntheticModelNote": "సింథటిక్-శిక్షణ పొందిన మోడళ్ల నుండి అంచనా వేయబడింది"
+  },
+  "season": {
+    "title": "నా సీజన్",
+    "export": "CSV ఎగుమతి",
+    "allSeasons": "అన్ని సీజన్లు",
+    "empty": "ఇంకా ఇక్కడ ఏమీ లేదు",
+    "emptyBody": "మీరు సేవ్ చేసే సలహాలు సీజన్ వారీగా ఇక్కడ చూపబడతాయి.",
+    "localFallbackNote": "మీ స్థానికంగా సేవ్ చేసిన ప్రణాళికలు చూపబడుతున్నాయి — పూర్తి సీజన్ చరిత్ర, అప్లికేషన్ లాగింగ్ మరియు CSV ఎగుమతి కోసం సర్వర్‌కు కనెక్ట్ చేయండి.",
+    "demoBadge": "డెమో",
+    "statusPlanned": "ప్రణాళిక చేయబడింది",
+    "statusApplied": "వేయబడింది",
+    "statusPartially": "పాక్షికంగా వేయబడింది",
+    "statusSkipped": "దాటవేయబడింది",
+    "cost": "ఖర్చు",
+    "sustainability": "నిలకడ",
+    "confidence": "నమ్మకం",
+    "reuseInputs": "ఈ ఇన్‌పుట్‌లను తిరిగి ఉపయోగించండి",
+    "logApplication": "అప్లికేషన్ లాగ్ చేయండి",
+    "applicationNotePlaceholder": "మీరు ఏమి వేశారు? (ఐచ్ఛికం)",
+    "totalCost": "మొత్తం ఖర్చు",
+    "avgSustainability": "సగటు నిలకడ",
+    "avgConfidence": "సగటు నమ్మకం",
+    "recommendationCount": "సలహాలు"
   }
 }

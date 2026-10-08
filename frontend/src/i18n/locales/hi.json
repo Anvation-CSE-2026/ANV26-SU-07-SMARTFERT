@@ -43,6 +43,7 @@
   "nav": {
     "dashboard": "होम",
     "newRecommendation": "सलाह पाएं",
+    "mySeason": "मेरा सीज़न",
     "compare": "तुलना करें",
     "savedScenarios": "सहेजे गए विकल्प"
   },
@@ -353,5 +354,28 @@
     "howToRaise": "इसे कैसे बढ़ाएं",
     "note": "यह एक अनुमानित विश्वसनीयता संकेतक है, सटीकता की सांख्यिकीय संभावना नहीं।",
     "syntheticModelNote": "सिंथेटिक-प्रशिक्षित मॉडलों से अनुमानित"
+  },
+  "season": {
+    "title": "मेरा सीज़न",
+    "export": "CSV निर्यात करें",
+    "allSeasons": "सभी मौसम",
+    "empty": "अभी यहाँ कुछ नहीं है",
+    "emptyBody": "आपकी सहेजी गई सलाह मौसम के अनुसार यहाँ दिखाई देगी।",
+    "localFallbackNote": "आपके स्थानीय रूप से सहेजे गए विकल्प दिखाए जा रहे हैं — पूर्ण सीज़न इतिहास, एप्लिकेशन लॉगिंग और CSV निर्यात के लिए सर्वर से कनेक्ट करें।",
+    "demoBadge": "डेमो",
+    "statusPlanned": "योजनाबद्ध",
+    "statusApplied": "लगाया गया",
+    "statusPartially": "आंशिक रूप से लगाया गया",
+    "statusSkipped": "छोड़ा गया",
+    "cost": "लागत",
+    "sustainability": "टिकाऊपन",
+    "confidence": "विश्वसनीयता",
+    "reuseInputs": "इन इनपुट का पुनः उपयोग करें",
+    "logApplication": "एप्लिकेशन लॉग करें",
+    "applicationNotePlaceholder": "आपने क्या लगाया? (वैकल्पिक)",
+    "totalCost": "कुल लागत",
+    "avgSustainability": "औसत टिकाऊपन",
+    "avgConfidence": "औसत विश्वसनीयता",
+    "recommendationCount": "सलाह"
   }
 }

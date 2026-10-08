@@ -3,9 +3,13 @@
 // sustainability/cost/yield sliders move, per the product spec.
 
 function collectPlans(result) {
-  if (!result) return [];
+  if (!result?.plan) return [];
+  // The mock engine stamps `objective` onto every plan object, including each
+  // entry inside `alternatives`. The real backend only stamps it onto the top
+  // -level `plan` - each `alternatives` entry is identified solely by its dict
+  // key. Re-attach `objective` from the key here so both shapes work the same.
   const all = { [result.plan.objective]: result.plan, ...(result.alternatives || {}) };
-  return Object.values(all);
+  return Object.entries(all).map(([objective, plan]) => ({ ...plan, objective: plan.objective || objective }));
 }
 
 // yieldScore approximates how much each plan's nutrient supply moves the
@@ -55,7 +59,7 @@ export function mixerSentenceKey(mixer) {
 
 // A short, human reason the top plan is what it is, for "why this plan moved to the top".
 export function whyTopPick(ranked, mixer) {
-  if (!ranked.length) return "";
+  if (!ranked.length || !ranked[0]?.plan?.objective) return "";
   const top = ranked[0];
   const dominant =
     mixer.sustainability >= mixer.cost && mixer.sustainability >= mixer.yieldW

@@ -30,6 +30,9 @@ export function Navbar() {
           <NavLink to="/input" className={linkClass}>
             {t("nav.newRecommendation")}
           </NavLink>
+          <NavLink to="/season" className={linkClass}>
+            {t("nav.mySeason")}
+          </NavLink>
           <NavLink to="/compare" className={linkClass}>
             {t("nav.compare")}
           </NavLink>
@@ -51,6 +54,9 @@ export function Navbar() {
         </NavLink>
         <NavLink to="/input" className={linkClass}>
           {t("nav.newRecommendation")}
+        </NavLink>
+        <NavLink to="/season" className={linkClass}>
+          {t("nav.mySeason")}
         </NavLink>
         <NavLink to="/compare" className={linkClass}>
           {t("nav.compare")}

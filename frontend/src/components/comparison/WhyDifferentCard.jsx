@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Card, CardHeader, CardBody } from "../common/Card";
 import { api } from "../../api/client";
+import { cropLabel } from "../../utils/format";
 
 function buildClientSummary(scenarios, t) {
   const points = [];
-  const crops = new Set(scenarios.map((s) => t(`crops.${s.input.crop}`)));
+  const crops = new Set(scenarios.map((s) => cropLabel(t, s.input.crop)));
   if (crops.size > 1) points.push(`Crops differ (${[...crops].join(", ")}), which changes nutrient needs.`);
   const districts = new Set(scenarios.map((s) => s.input.district));
   if (districts.size > 1) points.push(`Locations differ (${[...districts].join(", ")}), so weather and prices differ.`);

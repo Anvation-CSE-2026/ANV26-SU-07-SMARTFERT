@@ -48,23 +48,29 @@ export default function InputPage() {
     freeText: "",
   });
 
+  // "Reuse these inputs" from My Season sets draftInput with the full saved
+  // payload (not just a crop id) - prefill from it when those fields exist.
   const [form, setForm] = useState(() => ({
-    district: location?.district || "",
-    lat: location?.lat ?? null,
-    lon: location?.lon ?? null,
-    crop: draftInput?.crop || "",
-    target: "",
-    N: "",
-    P: "",
-    K: "",
-    pH: "",
-    OC: "",
-    texture: "",
-    rain30: "",
-    rain48: "",
-    temp: "",
-    dap_change: 0,
-    urea_change: 0,
+    district: draftInput?.district || location?.district || "",
+    lat: draftInput?.lat ?? location?.lat ?? null,
+    lon: draftInput?.lon ?? location?.lon ?? null,
+    // Always lowercase internally (this app's convention, matching the <select>
+    // option values and the mock engine's keys) even if the prefill came from a
+    // real-backend history item, which stores Title Case ("Rice") - see
+    // BACKEND_CROP_NAME in api/client.js for the reverse mapping on submit.
+    crop: (draftInput?.crop || "").toLowerCase(),
+    target: draftInput?.target ?? "",
+    N: draftInput?.N ?? "",
+    P: draftInput?.P ?? "",
+    K: draftInput?.K ?? "",
+    pH: draftInput?.pH ?? "",
+    OC: draftInput?.OC ?? "",
+    texture: draftInput?.texture || "",
+    rain30: draftInput?.rain30 ?? "",
+    rain48: draftInput?.rain48 ?? "",
+    temp: draftInput?.temp ?? "",
+    dap_change: draftInput?.dap_change ?? 0,
+    urea_change: draftInput?.urea_change ?? 0,
   }));
 
   const [weatherReliability, setWeatherReliability] = useState(null);
@@ -180,6 +186,7 @@ export default function InputPage() {
       dap_change: Number(form.dap_change) || 0,
       urea_change: Number(form.urea_change) || 0,
       ...confidenceFields,
+      save: true, // auto-save to this client's History when a real backend is reachable
     };
 
     const { data } = await api.postRecommend(payload);

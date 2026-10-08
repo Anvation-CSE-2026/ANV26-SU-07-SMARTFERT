@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Card, CardHeader, CardBody } from "../common/Card";
 import { Button } from "../common/Button";
 import { useAppStore } from "../../store/useAppStore";
+import { cropLabel } from "../../utils/format";
 
 export function ActionsSection({ input, result, readAloudText }) {
   const { t } = useTranslation();
@@ -25,7 +26,7 @@ export function ActionsSection({ input, result, readAloudText }) {
   function handleSave() {
     setSaving(true);
     const letter = nextScenarioLetter();
-    const name = `Scenario ${letter} — ${t(`crops.${input.crop}`)}`;
+    const name = `Scenario ${letter} — ${cropLabel(t, input.crop)}`;
     saveScenario(name, input, result);
     setSavedName(name);
     setSaving(false);

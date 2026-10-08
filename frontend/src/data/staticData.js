@@ -30,6 +30,10 @@ export const OBJECTIVES = ["cheapest", "balanced_inm", "eco_inm"];
 
 // `season` is shown as-is (not yet translated per-language - see i18n TODO in src/i18n/index.js).
 // Crop display names come from the `crops.*` i18n namespace, keyed by `id`.
+// `id` is the lowercase convention used throughout this UI and the mock engine.
+// The real Flask backend's crop_requirements.csv indexes by Title Case instead
+// (e.g. "Rice", not "rice") - BACKEND_CROP_NAME below maps one to the other;
+// see api/client.js, which applies it only on the real HTTP call.
 export const CROPS = [
   { id: "rice", season: "Kharif (Jun-Nov)", water: "high" },
   { id: "wheat", season: "Rabi (Nov-Apr)", water: "medium" },
@@ -40,6 +44,17 @@ export const CROPS = [
   { id: "ragi", season: "Kharif (Jun-Oct)", water: "low" },
   { id: "chickpea", season: "Rabi (Oct-Mar)", water: "low" },
 ];
+
+export const BACKEND_CROP_NAME = {
+  rice: "Rice",
+  wheat: "Wheat",
+  maize: "Maize",
+  cotton: "Cotton",
+  groundnut: "Groundnut",
+  sugarcane: "Sugarcane",
+  ragi: "Ragi",
+  chickpea: "Chickpea",
+};
 
 // Typical full-dose nutrient need per crop at medium target yield, kg/ha.
 // Used by the mock recommendation engine to size doses when soil is deficient.

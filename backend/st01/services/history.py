@@ -37,8 +37,14 @@ def seed_demo_history(client_id):
         if sid not in rows.index:
             continue
         row = rows.loc[sid]
+        drow = C.DIST.loc[row.district]
+        # Supply every weather/soil field the pipeline would otherwise fetch live
+        # (temp, texture) so seeding never makes a real network call and stays
+        # instant and deterministic.
+        texture = C.TEXTURE_OF_SOIL.get(str(drow.dominant_soil).strip().lower(), "loam")
         payload = {"crop": row.crop, "district": row.district, "N": float(row.N_kg_ha), "P": float(row.P_kg_ha),
-                   "K": float(row.K_kg_ha), "OC": float(row.OC_pct), "pH": float(row.pH), "rain30": float(row.rain_30d_mm)}
+                   "K": float(row.K_kg_ha), "OC": float(row.OC_pct), "pH": float(row.pH), "rain30": float(row.rain_30d_mm),
+                   "rain48": 0.0, "temp": float(drow.mean_temp_c), "texture": texture}
         try:
             result = pipeline.recommend(payload)
         except pipeline.InputError:

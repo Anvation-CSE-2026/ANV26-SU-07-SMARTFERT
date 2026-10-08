@@ -43,6 +43,7 @@
   "nav": {
     "dashboard": "Home",
     "newRecommendation": "Get recommendation",
+    "mySeason": "My Season",
     "compare": "Compare",
     "savedScenarios": "Saved scenarios"
   },
@@ -353,5 +354,28 @@
     "howToRaise": "How to raise this",
     "note": "This is a heuristic confidence indicator, not a statistical probability of correctness.",
     "syntheticModelNote": "Estimated from synthetic-trained models"
+  },
+  "season": {
+    "title": "My Season",
+    "export": "Export CSV",
+    "allSeasons": "All seasons",
+    "empty": "Nothing here yet",
+    "emptyBody": "Recommendations you save will show up here, organised by season.",
+    "localFallbackNote": "Showing your locally saved scenarios — connect to the server for full season history, application logging and CSV export.",
+    "demoBadge": "Demo",
+    "statusPlanned": "Planned",
+    "statusApplied": "Applied",
+    "statusPartially": "Partially applied",
+    "statusSkipped": "Skipped",
+    "cost": "Cost",
+    "sustainability": "Sustainability",
+    "confidence": "Confidence",
+    "reuseInputs": "Reuse these inputs",
+    "logApplication": "Log application",
+    "applicationNotePlaceholder": "What did you apply? (optional)",
+    "totalCost": "Total cost",
+    "avgSustainability": "Avg. sustainability",
+    "avgConfidence": "Avg. confidence",
+    "recommendationCount": "Recommendations"
   }
 }

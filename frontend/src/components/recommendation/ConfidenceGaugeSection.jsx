@@ -19,7 +19,7 @@ export function ConfidenceGaugeSection({ confidence }) {
   const [open, setOpen] = useState(false);
   if (!confidence) return null;
 
-  const { score, band, components, how_to_improve = [] } = confidence;
+  const { score, band, components, how_to_improve = [], synthetic_model_note } = confidence;
   const color = band === "High" ? "var(--color-green-600)" : band === "Medium" ? "var(--color-amber-500)" : "#dc2626";
 
   return (
@@ -30,7 +30,10 @@ export function ConfidenceGaugeSection({ confidence }) {
         action={<Badge tone={BAND_TONE[band]}>{t(`confidenceGauge.band${band}`)}</Badge>}
       />
       <CardBody>
-        <p className="text-sm text-green-800 mb-3">{t(`confidenceGauge.meaning${band}`)}</p>
+        <p className="text-sm text-green-800 mb-1">{t(`confidenceGauge.meaning${band}`)}</p>
+        {synthetic_model_note && (
+          <p className="text-xs text-amber-700 mb-3">🧪 {t("confidenceGauge.syntheticModelNote")}</p>
+        )}
 
         <div className="mb-4">
           <div className="flex justify-between text-sm mb-1">

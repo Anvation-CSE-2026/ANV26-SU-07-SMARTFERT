@@ -73,6 +73,15 @@ def compute(inp, rating, prior, y, src, soil_report_age_years=None, feedback_sup
     score = 100 * sum(C.CONF_WEIGHTS[weight_key[k]] * v for k, v in available.items()) / total_weight
     score = round(_clip(score, 0, 100))
 
+    # Honesty cap: this model is trained on synthetic data, and until real,
+    # verified farmer feedback exists for this crop/region (feedback_support
+    # populated by the adaptive-learning feature), we never claim near-perfect
+    # confidence - no amount of clean inputs alone should read as "certain".
+    has_real_feedback = feedback_support is not None
+    synthetic_model_note = not has_real_feedback
+    if synthetic_model_note:
+        score = min(score, round(C.CONF_WEIGHTS["max_score_without_feedback"]))
+
     band = ("High" if score >= C.CONF_WEIGHTS["band_high_min"]
             else "Medium" if score >= C.CONF_WEIGHTS["band_medium_min"] else "Low")
 
@@ -111,4 +120,6 @@ def compute(inp, rating, prior, y, src, soil_report_age_years=None, feedback_sup
         "reasons": reasons,
         "how_to_improve": improve,
         "note": "This is a heuristic confidence indicator, not a statistical probability of correctness.",
+        "synthetic_model_note": synthetic_model_note,
+        "synthetic_model_text": "Estimated from synthetic-trained models" if synthetic_model_note else None,
     }

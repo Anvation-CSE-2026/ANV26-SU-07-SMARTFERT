@@ -79,6 +79,28 @@ def test_old_soil_report_lowers_data_quality():
     assert old["score"] <= fresh["score"]
 
 
+def test_score_capped_until_real_feedback_exists(client):
+    # Even near-perfect inputs must not read as "near certain" - this model is
+    # trained on synthetic data, and feedback-based calibration (Feature 1)
+    # hasn't verified anything for this crop/region yet.
+    r = client.post("/api/recommend", json=dict(crop="Rice", district="Thanjavur", texture="clay",
+                                                  N=220, P=8, K=140, pH=7.4, OC=0.55, rain30=120, rain48=5, temp=29)).get_json()
+    conf = r["confidence"]
+    assert conf["score"] <= 90
+    assert conf["synthetic_model_note"] is True
+    assert conf["synthetic_model_text"] == "Estimated from synthetic-trained models"
+
+
+def test_cap_lifts_once_feedback_support_is_present():
+    inp = {"N": 220, "P": 8, "K": 140, "OC": 0.55, "pH": 7.4, "rain90": 300, "temp": 29}
+    rating, prior, y, src = {"N": "low", "P": "low", "K": "medium"}, {"N": 0.9, "P": 0.9, "K": 0.5}, {"low": 3.9, "point": 4.0, "high": 4.1}, {"weather": "user", "soil_properties": "user"}
+    capped = confidence.compute(inp, rating, prior, y, src)
+    with_feedback = confidence.compute(inp, rating, prior, y, src, feedback_support=0.95)
+    assert capped["synthetic_model_note"] is True
+    assert with_feedback["synthetic_model_note"] is False
+    assert with_feedback["score"] >= capped["score"]
+
+
 def test_out_of_distribution_inputs_flagged():
     rating, prior, y, src = {"N": "low", "P": "low", "K": "medium"}, {"N": 0.9, "P": 0.9, "K": 0.5}, {"low": 3.0, "point": 4.0, "high": 5.0}, {"weather": "user", "soil_properties": "user"}
     normal = confidence.compute({"N": 300, "P": 15, "K": 150, "OC": 0.5, "pH": 6.8, "rain90": 300, "temp": 27}, rating, prior, y, src)

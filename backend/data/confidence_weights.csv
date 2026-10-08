@@ -8,3 +8,4 @@ w_satellite_agreement,0.05,whether satellite vegetation signals agree with the s
 soil_report_age_penalty_years,3.0,soil test results older than this many years lose data_quality credit
 band_high_min,75,score at or above this is HIGH confidence
 band_medium_min,50,score at or above this (and below band_high_min) is MEDIUM confidence
+max_score_without_feedback,90,hard cap on the score until real verified farmer feedback exists for this crop/region

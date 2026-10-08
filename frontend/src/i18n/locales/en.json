@@ -351,6 +351,7 @@
     "feedbackSupport": "Local farmer feedback",
     "satelliteAgreement": "Satellite agreement",
     "howToRaise": "How to raise this",
-    "note": "This is a heuristic confidence indicator, not a statistical probability of correctness."
+    "note": "This is a heuristic confidence indicator, not a statistical probability of correctness.",
+    "syntheticModelNote": "Estimated from synthetic-trained models"
   }
 }

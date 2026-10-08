@@ -311,11 +311,16 @@ function estimateConfidenceScore({ inputMode, smartFarmerConfidence, soilRating,
   const components = { data_quality, model_agreement, interval_tightness, in_distribution, feedback_support: null, satellite_agreement: null };
   const available = Object.entries(components).filter(([, v]) => v != null);
   const totalWeight = available.reduce((s, [k]) => s + CONFIDENCE_WEIGHTS[k], 0) || 1;
-  const score = clamp(
+  let score = clamp(
     Math.round((100 * available.reduce((s, [k, v]) => s + CONFIDENCE_WEIGHTS[k] * v, 0)) / totalWeight),
     0,
     100
   );
+  // Honesty cap: no real, verified farmer feedback exists yet (adaptive
+  // learning is a separate, not-yet-built feature) - never claim near-certain
+  // confidence off synthetic-trained models alone.
+  const synthetic_model_note = components.feedback_support == null;
+  if (synthetic_model_note) score = Math.min(score, 90);
   const band = score >= 75 ? "High" : score >= 50 ? "Medium" : "Low";
 
   const reasons = [];
@@ -337,6 +342,8 @@ function estimateConfidenceScore({ inputMode, smartFarmerConfidence, soilRating,
     reasons,
     how_to_improve,
     note: "This is a heuristic confidence indicator, not a statistical probability of correctness.",
+    synthetic_model_note,
+    synthetic_model_text: synthetic_model_note ? "Estimated from synthetic-trained models" : null,
   };
 }
 

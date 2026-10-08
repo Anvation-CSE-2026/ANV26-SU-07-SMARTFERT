@@ -1,0 +1,6 @@
+parameter,value,note
+ghg_factor_N2O_kg_per_kg_N,0.01,IPCC default direct emission factor (1%) - VERIFY
+co2e_per_kg_N_manufacture,4.0,approx; VERIFY
+nue_good_threshold,0.5,assumed
+surplus_alert_kg_ha,40.0,assumed
+min_dose_fraction_of_cap,0.2,avoid soil mining

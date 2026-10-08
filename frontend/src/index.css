@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Sans", "Noto Sans Tamil", "Noto Sans Telugu", "Noto Sans Kannada",
+    "Noto Sans Devanagari", "Noto Sans Malayalam", ui-sans-serif, system-ui, sans-serif;
+
+  --color-mint-50: #f3faf4;
+  --color-mint-100: #e4f3e7;
+  --color-mint-200: #c9e8cf;
+  --color-surface: #ffffff;
+
+  --color-green-50: #eef7ee;
+  --color-green-100: #d7ecd8;
+  --color-green-200: #b0d9b3;
+  --color-green-300: #85c389;
+  --color-green-400: #5aab61;
+  --color-green-500: #3f9346;
+  --color-green-600: #2e7d32;
+  --color-green-700: #276629;
+  --color-green-800: #1f5222;
+  --color-green-900: #16401a;
+
+  --color-amber-50: #fdf6e8;
+  --color-amber-100: #faebc6;
+  --color-amber-300: #edc766;
+  --color-amber-500: #c98a1f;
+  --color-amber-600: #a56d14;
+  --color-amber-700: #7e5410;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-mint-50);
+  color: #1b2b1d;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-duration: 180ms;
+  transition-timing-function: ease;
+}
+
+::selection {
+  background: var(--color-green-200);
+}
+
+/* Skeleton loader shimmer */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-green-50);
+  border-radius: 0.75rem;
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(46, 125, 50, 0.08), transparent);
+  animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Focus ring for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-green-600);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-green-200); border-radius: 8px; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+}

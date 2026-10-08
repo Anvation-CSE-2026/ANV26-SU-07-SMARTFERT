@@ -1,0 +1,541 @@
+fertilizer,month,price_rs_per_kg,label_source
+Urea,2020-01-01,4.37,SYNTHETIC trend+season+shock series
+Urea,2020-02-01,4.46,SYNTHETIC trend+season+shock series
+Urea,2020-03-01,4.28,SYNTHETIC trend+season+shock series
+Urea,2020-04-01,4.37,SYNTHETIC trend+season+shock series
+Urea,2020-05-01,4.44,SYNTHETIC trend+season+shock series
+Urea,2020-06-01,4.69,SYNTHETIC trend+season+shock series
+Urea,2020-07-01,4.73,SYNTHETIC trend+season+shock series
+Urea,2020-08-01,4.91,SYNTHETIC trend+season+shock series
+Urea,2020-09-01,4.81,SYNTHETIC trend+season+shock series
+Urea,2020-10-01,4.61,SYNTHETIC trend+season+shock series
+Urea,2020-11-01,4.61,SYNTHETIC trend+season+shock series
+Urea,2020-12-01,4.59,SYNTHETIC trend+season+shock series
+Urea,2021-01-01,4.48,SYNTHETIC trend+season+shock series
+Urea,2021-02-01,4.45,SYNTHETIC trend+season+shock series
+Urea,2021-03-01,4.47,SYNTHETIC trend+season+shock series
+Urea,2021-04-01,4.58,SYNTHETIC trend+season+shock series
+Urea,2021-05-01,4.61,SYNTHETIC trend+season+shock series
+Urea,2021-06-01,4.79,SYNTHETIC trend+season+shock series
+Urea,2021-07-01,4.9,SYNTHETIC trend+season+shock series
+Urea,2021-08-01,4.88,SYNTHETIC trend+season+shock series
+Urea,2021-09-01,4.89,SYNTHETIC trend+season+shock series
+Urea,2021-10-01,4.83,SYNTHETIC trend+season+shock series
+Urea,2021-11-01,4.72,SYNTHETIC trend+season+shock series
+Urea,2021-12-01,4.73,SYNTHETIC trend+season+shock series
+Urea,2022-01-01,4.44,SYNTHETIC trend+season+shock series
+Urea,2022-02-01,4.48,SYNTHETIC trend+season+shock series
+Urea,2022-03-01,4.65,SYNTHETIC trend+season+shock series
+Urea,2022-04-01,4.75,SYNTHETIC trend+season+shock series
+Urea,2022-05-01,4.77,SYNTHETIC trend+season+shock series
+Urea,2022-06-01,4.97,SYNTHETIC trend+season+shock series
+Urea,2022-07-01,4.94,SYNTHETIC trend+season+shock series
+Urea,2022-08-01,4.97,SYNTHETIC trend+season+shock series
+Urea,2022-09-01,5.03,SYNTHETIC trend+season+shock series
+Urea,2022-10-01,4.99,SYNTHETIC trend+season+shock series
+Urea,2022-11-01,4.86,SYNTHETIC trend+season+shock series
+Urea,2022-12-01,4.89,SYNTHETIC trend+season+shock series
+Urea,2023-01-01,4.75,SYNTHETIC trend+season+shock series
+Urea,2023-02-01,4.51,SYNTHETIC trend+season+shock series
+Urea,2023-03-01,4.73,SYNTHETIC trend+season+shock series
+Urea,2023-04-01,4.85,SYNTHETIC trend+season+shock series
+Urea,2023-05-01,5.0,SYNTHETIC trend+season+shock series
+Urea,2023-06-01,5.13,SYNTHETIC trend+season+shock series
+Urea,2023-07-01,5.15,SYNTHETIC trend+season+shock series
+Urea,2023-08-01,5.16,SYNTHETIC trend+season+shock series
+Urea,2023-09-01,5.16,SYNTHETIC trend+season+shock series
+Urea,2023-10-01,5.08,SYNTHETIC trend+season+shock series
+Urea,2023-11-01,4.78,SYNTHETIC trend+season+shock series
+Urea,2023-12-01,4.93,SYNTHETIC trend+season+shock series
+Urea,2024-01-01,4.72,SYNTHETIC trend+season+shock series
+Urea,2024-02-01,4.96,SYNTHETIC trend+season+shock series
+Urea,2024-03-01,4.82,SYNTHETIC trend+season+shock series
+Urea,2024-04-01,4.96,SYNTHETIC trend+season+shock series
+Urea,2024-05-01,5.09,SYNTHETIC trend+season+shock series
+Urea,2024-06-01,5.22,SYNTHETIC trend+season+shock series
+Urea,2024-07-01,5.27,SYNTHETIC trend+season+shock series
+Urea,2024-08-01,5.28,SYNTHETIC trend+season+shock series
+Urea,2024-09-01,5.45,SYNTHETIC trend+season+shock series
+Urea,2024-10-01,5.29,SYNTHETIC trend+season+shock series
+Urea,2024-11-01,5.02,SYNTHETIC trend+season+shock series
+Urea,2024-12-01,4.99,SYNTHETIC trend+season+shock series
+DAP,2020-01-01,23.03,SYNTHETIC trend+season+shock series
+DAP,2020-02-01,21.51,SYNTHETIC trend+season+shock series
+DAP,2020-03-01,22.57,SYNTHETIC trend+season+shock series
+DAP,2020-04-01,22.93,SYNTHETIC trend+season+shock series
+DAP,2020-05-01,23.76,SYNTHETIC trend+season+shock series
+DAP,2020-06-01,24.21,SYNTHETIC trend+season+shock series
+DAP,2020-07-01,25.74,SYNTHETIC trend+season+shock series
+DAP,2020-08-01,26.32,SYNTHETIC trend+season+shock series
+DAP,2020-09-01,26.19,SYNTHETIC trend+season+shock series
+DAP,2020-10-01,26.05,SYNTHETIC trend+season+shock series
+DAP,2020-11-01,25.63,SYNTHETIC trend+season+shock series
+DAP,2020-12-01,26.06,SYNTHETIC trend+season+shock series
+DAP,2021-01-01,25.99,SYNTHETIC trend+season+shock series
+DAP,2021-02-01,26.34,SYNTHETIC trend+season+shock series
+DAP,2021-03-01,25.69,SYNTHETIC trend+season+shock series
+DAP,2021-04-01,26.67,SYNTHETIC trend+season+shock series
+DAP,2021-05-01,27.75,SYNTHETIC trend+season+shock series
+DAP,2021-06-01,29.01,SYNTHETIC trend+season+shock series
+DAP,2021-07-01,29.3,SYNTHETIC trend+season+shock series
+DAP,2021-08-01,30.25,SYNTHETIC trend+season+shock series
+DAP,2021-09-01,29.35,SYNTHETIC trend+season+shock series
+DAP,2021-10-01,30.37,SYNTHETIC trend+season+shock series
+DAP,2021-11-01,29.54,SYNTHETIC trend+season+shock series
+DAP,2021-12-01,29.06,SYNTHETIC trend+season+shock series
+DAP,2022-01-01,29.48,SYNTHETIC trend+season+shock series
+DAP,2022-02-01,29.95,SYNTHETIC trend+season+shock series
+DAP,2022-03-01,29.66,SYNTHETIC trend+season+shock series
+DAP,2022-04-01,31.73,SYNTHETIC trend+season+shock series
+DAP,2022-05-01,31.71,SYNTHETIC trend+season+shock series
+DAP,2022-06-01,34.29,SYNTHETIC trend+season+shock series
+DAP,2022-07-01,33.41,SYNTHETIC trend+season+shock series
+DAP,2022-08-01,34.08,SYNTHETIC trend+season+shock series
+DAP,2022-09-01,34.27,SYNTHETIC trend+season+shock series
+DAP,2022-10-01,34.67,SYNTHETIC trend+season+shock series
+DAP,2022-11-01,35.04,SYNTHETIC trend+season+shock series
+DAP,2022-12-01,33.83,SYNTHETIC trend+season+shock series
+DAP,2023-01-01,33.96,SYNTHETIC trend+season+shock series
+DAP,2023-02-01,33.98,SYNTHETIC trend+season+shock series
+DAP,2023-03-01,35.16,SYNTHETIC trend+season+shock series
+DAP,2023-04-01,35.95,SYNTHETIC trend+season+shock series
+DAP,2023-05-01,38.55,SYNTHETIC trend+season+shock series
+DAP,2023-06-01,38.36,SYNTHETIC trend+season+shock series
+DAP,2023-07-01,39.48,SYNTHETIC trend+season+shock series
+DAP,2023-08-01,40.34,SYNTHETIC trend+season+shock series
+DAP,2023-09-01,39.06,SYNTHETIC trend+season+shock series
+DAP,2023-10-01,39.5,SYNTHETIC trend+season+shock series
+DAP,2023-11-01,39.97,SYNTHETIC trend+season+shock series
+DAP,2023-12-01,40.28,SYNTHETIC trend+season+shock series
+DAP,2024-01-01,40.53,SYNTHETIC trend+season+shock series
+DAP,2024-02-01,42.37,SYNTHETIC trend+season+shock series
+DAP,2024-03-01,44.44,SYNTHETIC trend+season+shock series
+DAP,2024-04-01,47.73,SYNTHETIC trend+season+shock series
+DAP,2024-05-01,51.91,SYNTHETIC trend+season+shock series
+DAP,2024-06-01,53.62,SYNTHETIC trend+season+shock series
+DAP,2024-07-01,58.24,SYNTHETIC trend+season+shock series
+DAP,2024-08-01,57.91,SYNTHETIC trend+season+shock series
+DAP,2024-09-01,62.84,SYNTHETIC trend+season+shock series
+DAP,2024-10-01,63.79,SYNTHETIC trend+season+shock series
+DAP,2024-11-01,64.57,SYNTHETIC trend+season+shock series
+DAP,2024-12-01,66.78,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-01-01,27.9,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-02-01,27.13,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-03-01,28.27,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-04-01,29.01,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-05-01,29.72,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-06-01,30.5,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-07-01,31.16,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-08-01,31.61,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-09-01,31.52,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-10-01,31.53,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-11-01,31.53,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2020-12-01,29.97,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-01-01,30.56,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-02-01,30.75,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-03-01,31.2,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-04-01,31.37,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-05-01,32.99,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-06-01,33.74,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-07-01,34.21,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-08-01,34.55,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-09-01,35.25,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-10-01,34.04,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-11-01,34.6,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2021-12-01,34.18,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-01-01,32.9,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-02-01,33.88,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-03-01,33.74,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-04-01,36.04,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-05-01,35.45,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-06-01,37.97,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-07-01,37.82,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-08-01,38.65,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-09-01,38.76,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-10-01,37.44,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-11-01,37.57,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2022-12-01,37.19,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-01-01,36.27,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-02-01,37.13,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-03-01,37.78,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-04-01,37.9,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-05-01,40.56,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-06-01,40.33,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-07-01,40.9,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-08-01,42.99,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-09-01,41.74,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-10-01,41.71,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-11-01,42.26,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2023-12-01,40.74,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-01-01,43.1,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-02-01,44.06,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-03-01,45.77,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-04-01,49.17,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-05-01,51.4,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-06-01,56.02,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-07-01,58.01,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-08-01,61.16,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-09-01,61.11,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-10-01,63.07,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-11-01,63.42,SYNTHETIC trend+season+shock series
+MOP (Muriate of Potash),2024-12-01,67.08,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-01-01,8.16,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-02-01,8.08,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-03-01,8.23,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-04-01,8.38,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-05-01,8.93,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-06-01,8.99,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-07-01,8.94,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-08-01,9.15,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-09-01,9.25,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-10-01,9.2,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-11-01,9.02,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2020-12-01,8.75,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-01-01,8.89,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-02-01,8.82,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-03-01,8.98,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-04-01,8.81,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-05-01,9.38,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-06-01,9.77,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-07-01,9.78,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-08-01,9.86,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-09-01,9.78,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-10-01,9.52,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-11-01,9.68,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2021-12-01,9.47,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-01-01,9.65,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-02-01,9.3,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-03-01,9.59,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-04-01,9.84,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-05-01,10.09,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-06-01,10.17,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-07-01,10.45,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-08-01,10.69,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-09-01,10.61,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-10-01,10.6,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-11-01,10.16,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2022-12-01,10.21,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-01-01,10.27,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-02-01,10.14,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-03-01,9.97,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-04-01,10.54,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-05-01,10.76,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-06-01,10.93,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-07-01,11.46,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-08-01,11.57,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-09-01,11.34,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-10-01,11.38,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-11-01,11.18,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2023-12-01,10.91,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-01-01,11.13,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-02-01,10.84,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-03-01,11.03,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-04-01,11.23,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-05-01,11.64,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-06-01,12.19,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-07-01,12.33,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-08-01,12.65,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-09-01,12.45,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-10-01,12.29,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-11-01,11.56,SYNTHETIC trend+season+shock series
+SSP (Single Super Phosphate),2024-12-01,11.93,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-01-01,23.93,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-02-01,23.85,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-03-01,24.44,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-04-01,25.08,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-05-01,25.53,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-06-01,26.64,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-07-01,28.33,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-08-01,27.25,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-09-01,28.13,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-10-01,28.01,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-11-01,27.76,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2020-12-01,27.32,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-01-01,27.38,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-02-01,26.73,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-03-01,27.53,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-04-01,28.34,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-05-01,30.17,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-06-01,30.0,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-07-01,30.48,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-08-01,31.76,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-09-01,32.02,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-10-01,31.43,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-11-01,30.28,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2021-12-01,30.8,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-01-01,30.33,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-02-01,30.84,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-03-01,30.9,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-04-01,31.99,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-05-01,32.7,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-06-01,33.02,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-07-01,35.4,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-08-01,34.83,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-09-01,35.6,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-10-01,36.25,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-11-01,34.63,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2022-12-01,34.96,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-01-01,33.99,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-02-01,34.93,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-03-01,34.93,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-04-01,35.0,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-05-01,37.57,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-06-01,38.2,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-07-01,39.47,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-08-01,39.91,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-09-01,39.59,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-10-01,40.47,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-11-01,39.68,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2023-12-01,38.69,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-01-01,40.31,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-02-01,42.95,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-03-01,43.96,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-04-01,46.61,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-05-01,50.81,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-06-01,54.78,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-07-01,55.09,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-08-01,58.3,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-09-01,60.27,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-10-01,62.69,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-11-01,64.43,SYNTHETIC trend+season+shock series
+NPK 10-26-26,2024-12-01,63.64,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-01-01,14.37,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-02-01,14.74,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-03-01,14.87,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-04-01,15.4,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-05-01,15.24,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-06-01,15.8,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-07-01,16.49,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-08-01,16.46,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-09-01,16.38,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-10-01,16.28,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-11-01,15.89,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2020-12-01,15.39,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-01-01,15.49,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-02-01,15.49,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-03-01,16.07,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-04-01,15.85,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-05-01,16.44,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-06-01,16.79,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-07-01,17.28,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-08-01,17.16,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-09-01,16.92,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-10-01,17.83,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-11-01,16.31,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2021-12-01,16.26,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-01-01,16.2,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-02-01,16.67,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-03-01,16.25,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-04-01,16.43,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-05-01,17.2,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-06-01,17.85,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-07-01,17.48,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-08-01,18.15,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-09-01,18.08,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-10-01,17.56,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-11-01,17.2,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2022-12-01,17.3,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-01-01,16.83,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-02-01,16.96,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-03-01,17.51,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-04-01,17.58,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-05-01,17.86,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-06-01,18.96,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-07-01,18.83,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-08-01,18.71,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-09-01,19.03,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-10-01,18.96,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-11-01,18.55,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2023-12-01,18.35,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-01-01,18.2,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-02-01,17.81,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-03-01,18.39,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-04-01,18.8,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-05-01,18.89,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-06-01,19.93,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-07-01,19.51,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-08-01,19.72,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-09-01,19.41,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-10-01,19.62,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-11-01,19.13,SYNTHETIC trend+season+shock series
+Ammonium sulphate,2024-12-01,18.83,SYNTHETIC trend+season+shock series
+Vermicompost,2020-01-01,4.97,SYNTHETIC trend+season+shock series
+Vermicompost,2020-02-01,4.87,SYNTHETIC trend+season+shock series
+Vermicompost,2020-03-01,4.93,SYNTHETIC trend+season+shock series
+Vermicompost,2020-04-01,5.16,SYNTHETIC trend+season+shock series
+Vermicompost,2020-05-01,5.09,SYNTHETIC trend+season+shock series
+Vermicompost,2020-06-01,5.39,SYNTHETIC trend+season+shock series
+Vermicompost,2020-07-01,5.58,SYNTHETIC trend+season+shock series
+Vermicompost,2020-08-01,5.58,SYNTHETIC trend+season+shock series
+Vermicompost,2020-09-01,5.39,SYNTHETIC trend+season+shock series
+Vermicompost,2020-10-01,5.26,SYNTHETIC trend+season+shock series
+Vermicompost,2020-11-01,5.28,SYNTHETIC trend+season+shock series
+Vermicompost,2020-12-01,5.18,SYNTHETIC trend+season+shock series
+Vermicompost,2021-01-01,5.02,SYNTHETIC trend+season+shock series
+Vermicompost,2021-02-01,5.08,SYNTHETIC trend+season+shock series
+Vermicompost,2021-03-01,5.18,SYNTHETIC trend+season+shock series
+Vermicompost,2021-04-01,5.36,SYNTHETIC trend+season+shock series
+Vermicompost,2021-05-01,5.46,SYNTHETIC trend+season+shock series
+Vermicompost,2021-06-01,5.56,SYNTHETIC trend+season+shock series
+Vermicompost,2021-07-01,5.72,SYNTHETIC trend+season+shock series
+Vermicompost,2021-08-01,5.73,SYNTHETIC trend+season+shock series
+Vermicompost,2021-09-01,5.7,SYNTHETIC trend+season+shock series
+Vermicompost,2021-10-01,5.5,SYNTHETIC trend+season+shock series
+Vermicompost,2021-11-01,5.5,SYNTHETIC trend+season+shock series
+Vermicompost,2021-12-01,5.49,SYNTHETIC trend+season+shock series
+Vermicompost,2022-01-01,5.29,SYNTHETIC trend+season+shock series
+Vermicompost,2022-02-01,5.5,SYNTHETIC trend+season+shock series
+Vermicompost,2022-03-01,5.47,SYNTHETIC trend+season+shock series
+Vermicompost,2022-04-01,5.73,SYNTHETIC trend+season+shock series
+Vermicompost,2022-05-01,5.72,SYNTHETIC trend+season+shock series
+Vermicompost,2022-06-01,5.88,SYNTHETIC trend+season+shock series
+Vermicompost,2022-07-01,5.85,SYNTHETIC trend+season+shock series
+Vermicompost,2022-08-01,6.14,SYNTHETIC trend+season+shock series
+Vermicompost,2022-09-01,6.04,SYNTHETIC trend+season+shock series
+Vermicompost,2022-10-01,5.94,SYNTHETIC trend+season+shock series
+Vermicompost,2022-11-01,5.9,SYNTHETIC trend+season+shock series
+Vermicompost,2022-12-01,5.74,SYNTHETIC trend+season+shock series
+Vermicompost,2023-01-01,5.61,SYNTHETIC trend+season+shock series
+Vermicompost,2023-02-01,5.63,SYNTHETIC trend+season+shock series
+Vermicompost,2023-03-01,5.75,SYNTHETIC trend+season+shock series
+Vermicompost,2023-04-01,5.99,SYNTHETIC trend+season+shock series
+Vermicompost,2023-05-01,5.94,SYNTHETIC trend+season+shock series
+Vermicompost,2023-06-01,6.19,SYNTHETIC trend+season+shock series
+Vermicompost,2023-07-01,6.15,SYNTHETIC trend+season+shock series
+Vermicompost,2023-08-01,6.35,SYNTHETIC trend+season+shock series
+Vermicompost,2023-09-01,6.34,SYNTHETIC trend+season+shock series
+Vermicompost,2023-10-01,6.16,SYNTHETIC trend+season+shock series
+Vermicompost,2023-11-01,6.18,SYNTHETIC trend+season+shock series
+Vermicompost,2023-12-01,5.91,SYNTHETIC trend+season+shock series
+Vermicompost,2024-01-01,5.96,SYNTHETIC trend+season+shock series
+Vermicompost,2024-02-01,5.93,SYNTHETIC trend+season+shock series
+Vermicompost,2024-03-01,6.13,SYNTHETIC trend+season+shock series
+Vermicompost,2024-04-01,6.1,SYNTHETIC trend+season+shock series
+Vermicompost,2024-05-01,6.39,SYNTHETIC trend+season+shock series
+Vermicompost,2024-06-01,6.55,SYNTHETIC trend+season+shock series
+Vermicompost,2024-07-01,6.75,SYNTHETIC trend+season+shock series
+Vermicompost,2024-08-01,6.36,SYNTHETIC trend+season+shock series
+Vermicompost,2024-09-01,6.63,SYNTHETIC trend+season+shock series
+Vermicompost,2024-10-01,6.67,SYNTHETIC trend+season+shock series
+Vermicompost,2024-11-01,6.47,SYNTHETIC trend+season+shock series
+Vermicompost,2024-12-01,6.33,SYNTHETIC trend+season+shock series
+Compost,2020-01-01,4.96,SYNTHETIC trend+season+shock series
+Compost,2020-02-01,4.86,SYNTHETIC trend+season+shock series
+Compost,2020-03-01,5.07,SYNTHETIC trend+season+shock series
+Compost,2020-04-01,5.04,SYNTHETIC trend+season+shock series
+Compost,2020-05-01,5.14,SYNTHETIC trend+season+shock series
+Compost,2020-06-01,5.1,SYNTHETIC trend+season+shock series
+Compost,2020-07-01,5.43,SYNTHETIC trend+season+shock series
+Compost,2020-08-01,5.31,SYNTHETIC trend+season+shock series
+Compost,2020-09-01,5.52,SYNTHETIC trend+season+shock series
+Compost,2020-10-01,5.43,SYNTHETIC trend+season+shock series
+Compost,2020-11-01,5.24,SYNTHETIC trend+season+shock series
+Compost,2020-12-01,5.01,SYNTHETIC trend+season+shock series
+Compost,2021-01-01,5.05,SYNTHETIC trend+season+shock series
+Compost,2021-02-01,5.1,SYNTHETIC trend+season+shock series
+Compost,2021-03-01,5.14,SYNTHETIC trend+season+shock series
+Compost,2021-04-01,5.17,SYNTHETIC trend+season+shock series
+Compost,2021-05-01,5.48,SYNTHETIC trend+season+shock series
+Compost,2021-06-01,5.4,SYNTHETIC trend+season+shock series
+Compost,2021-07-01,5.4,SYNTHETIC trend+season+shock series
+Compost,2021-08-01,5.68,SYNTHETIC trend+season+shock series
+Compost,2021-09-01,5.66,SYNTHETIC trend+season+shock series
+Compost,2021-10-01,5.52,SYNTHETIC trend+season+shock series
+Compost,2021-11-01,5.43,SYNTHETIC trend+season+shock series
+Compost,2021-12-01,5.34,SYNTHETIC trend+season+shock series
+Compost,2022-01-01,5.26,SYNTHETIC trend+season+shock series
+Compost,2022-02-01,5.34,SYNTHETIC trend+season+shock series
+Compost,2022-03-01,5.33,SYNTHETIC trend+season+shock series
+Compost,2022-04-01,5.36,SYNTHETIC trend+season+shock series
+Compost,2022-05-01,5.62,SYNTHETIC trend+season+shock series
+Compost,2022-06-01,5.78,SYNTHETIC trend+season+shock series
+Compost,2022-07-01,5.78,SYNTHETIC trend+season+shock series
+Compost,2022-08-01,5.82,SYNTHETIC trend+season+shock series
+Compost,2022-09-01,5.9,SYNTHETIC trend+season+shock series
+Compost,2022-10-01,5.89,SYNTHETIC trend+season+shock series
+Compost,2022-11-01,5.61,SYNTHETIC trend+season+shock series
+Compost,2022-12-01,5.55,SYNTHETIC trend+season+shock series
+Compost,2023-01-01,5.49,SYNTHETIC trend+season+shock series
+Compost,2023-02-01,5.46,SYNTHETIC trend+season+shock series
+Compost,2023-03-01,5.53,SYNTHETIC trend+season+shock series
+Compost,2023-04-01,5.88,SYNTHETIC trend+season+shock series
+Compost,2023-05-01,5.72,SYNTHETIC trend+season+shock series
+Compost,2023-06-01,5.98,SYNTHETIC trend+season+shock series
+Compost,2023-07-01,5.91,SYNTHETIC trend+season+shock series
+Compost,2023-08-01,6.0,SYNTHETIC trend+season+shock series
+Compost,2023-09-01,5.74,SYNTHETIC trend+season+shock series
+Compost,2023-10-01,5.95,SYNTHETIC trend+season+shock series
+Compost,2023-11-01,5.74,SYNTHETIC trend+season+shock series
+Compost,2023-12-01,5.77,SYNTHETIC trend+season+shock series
+Compost,2024-01-01,5.65,SYNTHETIC trend+season+shock series
+Compost,2024-02-01,5.53,SYNTHETIC trend+season+shock series
+Compost,2024-03-01,5.71,SYNTHETIC trend+season+shock series
+Compost,2024-04-01,5.8,SYNTHETIC trend+season+shock series
+Compost,2024-05-01,6.14,SYNTHETIC trend+season+shock series
+Compost,2024-06-01,6.12,SYNTHETIC trend+season+shock series
+Compost,2024-07-01,6.08,SYNTHETIC trend+season+shock series
+Compost,2024-08-01,6.29,SYNTHETIC trend+season+shock series
+Compost,2024-09-01,6.28,SYNTHETIC trend+season+shock series
+Compost,2024-10-01,6.13,SYNTHETIC trend+season+shock series
+Compost,2024-11-01,6.05,SYNTHETIC trend+season+shock series
+Compost,2024-12-01,6.03,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-01-01,1.62,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-02-01,1.68,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-03-01,1.67,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-04-01,1.69,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-05-01,1.68,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-06-01,1.78,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-07-01,1.75,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-08-01,1.8,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-09-01,1.78,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-10-01,1.78,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-11-01,1.73,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2020-12-01,1.67,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-01-01,1.67,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-02-01,1.67,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-03-01,1.72,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-04-01,1.72,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-05-01,1.73,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-06-01,1.81,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-07-01,1.84,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-08-01,1.81,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-09-01,1.81,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-10-01,1.8,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-11-01,1.76,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2021-12-01,1.77,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-01-01,1.72,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-02-01,1.69,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-03-01,1.73,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-04-01,1.76,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-05-01,1.77,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-06-01,1.82,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-07-01,1.88,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-08-01,1.92,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-09-01,1.89,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-10-01,1.83,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-11-01,1.86,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2022-12-01,1.77,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-01-01,1.78,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-02-01,1.79,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-03-01,1.78,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-04-01,1.79,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-05-01,1.85,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-06-01,1.89,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-07-01,1.88,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-08-01,1.92,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-09-01,1.94,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-10-01,1.88,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-11-01,1.84,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2023-12-01,1.78,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-01-01,1.76,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-02-01,1.86,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-03-01,1.79,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-04-01,1.83,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-05-01,1.92,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-06-01,1.9,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-07-01,1.95,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-08-01,2.0,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-09-01,1.97,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-10-01,1.9,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-11-01,1.89,SYNTHETIC trend+season+shock series
+Farmyard manure (FYM),2024-12-01,1.9,SYNTHETIC trend+season+shock series

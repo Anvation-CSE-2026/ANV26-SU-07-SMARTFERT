@@ -1,0 +1,8 @@
+parameter,method,low_below,high_above,note
+N_kg_ha,available N (alkaline KMnO4),280.0,560.0,"Commonly cited Indian soil-test cutoffs, simplified; VERIFY"
+P_kg_ha,available P (Olsen),10.0,25.0,"Commonly cited Indian soil-test cutoffs, simplified; VERIFY"
+K_kg_ha,available K (ammonium acetate),110.0,280.0,"Commonly cited Indian soil-test cutoffs, simplified; VERIFY"
+OC_pct,organic carbon,0.5,0.75,"Commonly cited Indian soil-test cutoffs, simplified; VERIFY"
+pH_low_acidic,below = acidic flag,6.0,6.0,"Commonly cited Indian soil-test cutoffs, simplified; VERIFY"
+pH_high_alkaline,above = alkaline flag,8.5,8.5,"Commonly cited Indian soil-test cutoffs, simplified; VERIFY"
+EC_dS_m,above = saline flag,2.0,2.0,"Commonly cited Indian soil-test cutoffs, simplified; VERIFY"

@@ -1,0 +1,10 @@
+name,value,meaning
+w_data_quality,0.30,share of key inputs from a report/live source vs estimated or fallback
+w_model_agreement,0.20,how closely the weather early-warning prior matches the soil-report rating
+w_interval_tightness,0.20,how narrow the yield prediction interval is relative to the point estimate
+w_in_distribution,0.15,fraction of inputs within the 5th-95th percentile of the training data
+w_feedback_support,0.10,how many verified local farmer reports back this crop/region up
+w_satellite_agreement,0.05,whether satellite vegetation signals agree with the soil-report rating
+soil_report_age_penalty_years,3.0,soil test results older than this many years lose data_quality credit
+band_high_min,75,score at or above this is HIGH confidence
+band_medium_min,50,score at or above this (and below band_high_min) is MEDIUM confidence

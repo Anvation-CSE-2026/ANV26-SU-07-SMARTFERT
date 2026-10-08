@@ -1,0 +1,11 @@
+nutrient,feature,operator,threshold,reason,sensitivity_adjust,advice,adj_max,note
+N,rain_30d_mm,>,200,heavy rain -> leaching/denitrification,0.1,split dose; delay application; prefer neem-coated urea,0.2,"Assumption table; bounded: adj=clip(sens*severity,0,adj_max); dose_new=min(dose*(1+adj),cap_max)"
+N,rain_anomaly_z,<,-1.5,drought -> poor uptake,0.0,reduce top-dress; irrigate before applying,0.2,"Assumption table; bounded: adj=clip(sens*severity,0,adj_max); dose_new=min(dose*(1+adj),cap_max)"
+N,temp_30d_c,>,35,heat stress -> volatilisation loss,0.08,apply in evening; incorporate,0.2,"Assumption table; bounded: adj=clip(sens*severity,0,adj_max); dose_new=min(dose*(1+adj),cap_max)"
+P,soil_texture,==,clay,P fixation is high on clay,0.05,band placement near roots,0.2,"Assumption table; bounded: adj=clip(sens*severity,0,adj_max); dose_new=min(dose*(1+adj),cap_max)"
+P,pH,<,5.5,acidic -> P fixation,0.1,lime first; add PSB,0.2,"Assumption table; bounded: adj=clip(sens*severity,0,adj_max); dose_new=min(dose*(1+adj),cap_max)"
+P,pH,>,8.5,alkaline -> P lock-up,0.08,use SSP/organics; add PSB,0.2,"Assumption table; bounded: adj=clip(sens*severity,0,adj_max); dose_new=min(dose*(1+adj),cap_max)"
+K,rain_30d_mm,>,200,leaching on light soils,0.08,split application,0.2,"Assumption table; bounded: adj=clip(sens*severity,0,adj_max); dose_new=min(dose*(1+adj),cap_max)"
+K,soil_texture,==,sandy,low K retention on sandy soil,0.1,split dose,0.2,"Assumption table; bounded: adj=clip(sens*severity,0,adj_max); dose_new=min(dose*(1+adj),cap_max)"
+N,trend_rain_sen_slope,<,-5,declining rainfall trend,0.05,efficiency-focused schedule,0.2,"Assumption table; bounded: adj=clip(sens*severity,0,adj_max); dose_new=min(dose*(1+adj),cap_max)"
+ALL,rain_forecast_48h_mm,>,50,heavy rain forecast,0.0,DO NOT apply before heavy rain (runoff risk),0.2,"Assumption table; bounded: adj=clip(sens*severity,0,adj_max); dose_new=min(dose*(1+adj),cap_max)"

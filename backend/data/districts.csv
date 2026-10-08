@@ -1,0 +1,16 @@
+district,state,lat,lon,dominant_soil,mean_annual_rain_mm,mean_temp_c,main_crops,district_id,note
+Thanjavur,Tamil Nadu,10.78,79.14,alluvial clay,1000,28.5,Rice;Green gram;Groundnut,1,Approximate / illustrative climate and soil; not official statistics
+Coimbatore,Tamil Nadu,11.0,76.96,red loam,650,26.0,Maize;Cotton;Sorghum;Banana,2,Approximate / illustrative climate and soil; not official statistics
+Madurai,Tamil Nadu,9.92,78.12,red sandy loam,850,28.8,Rice;Cotton;Chilli,3,Approximate / illustrative climate and soil; not official statistics
+Ludhiana,Punjab,30.9,75.85,sandy loam,750,24.0,Wheat;Rice;Maize,4,Approximate / illustrative climate and soil; not official statistics
+Karnal,Haryana,29.69,76.99,alluvial loam,700,24.5,Wheat;Rice;Sugarcane,5,Approximate / illustrative climate and soil; not official statistics
+Nagpur,Maharashtra,21.15,79.09,black clay,1100,27.0,Cotton;Soybean;Pigeon pea,6,Approximate / illustrative climate and soil; not official statistics
+Pune,Maharashtra,18.52,73.86,medium black,700,25.0,Sugarcane;Onion;Maize,7,Approximate / illustrative climate and soil; not official statistics
+Guntur,Andhra Pradesh,16.31,80.44,black cotton,900,28.5,Cotton;Chilli;Rice,8,Approximate / illustrative climate and soil; not official statistics
+Indore,Madhya Pradesh,22.72,75.86,black clay,950,25.5,Soybean;Wheat;Chickpea,9,Approximate / illustrative climate and soil; not official statistics
+Jaipur,Rajasthan,26.91,75.79,sandy loam,550,25.5,Mustard;Pearl millet;Wheat,10,Approximate / illustrative climate and soil; not official statistics
+Kanpur,Uttar Pradesh,26.45,80.35,alluvial,800,26.0,Wheat;Rice;Potato,11,Approximate / illustrative climate and soil; not official statistics
+Patna,Bihar,25.59,85.14,alluvial,1100,26.0,Rice;Wheat;Maize,12,Approximate / illustrative climate and soil; not official statistics
+Bengaluru Rural,Karnataka,13.17,77.55,red sandy loam,800,24.5,Ragi;Tomato;Maize,13,Approximate / illustrative climate and soil; not official statistics
+Dharwad,Karnataka,15.46,75.01,black clay,800,25.0,Cotton;Sorghum;Chilli,14,Approximate / illustrative climate and soil; not official statistics
+Kolkata (24 Pgs),West Bengal,22.57,88.36,alluvial clay,1700,27.0,Rice;Potato;Mustard,15,Approximate / illustrative climate and soil; not official statistics

@@ -1,0 +1,11 @@
+scenario_id,comparison,crop,district,N_kg_ha,P_kg_ha,K_kg_ha,OC_pct,pH,EC_dS_m,rain_30d_mm,weather_condition,why_it_changes
+S1,Rice vs wheat on the same soil,Rice,Thanjavur,220,8,140,0.55,7.4,0.8,120,normal,Rice has high water and uptake; high N loss
+S2,Rice vs wheat on the same soil,Wheat,Thanjavur,220,8,140,0.55,7.4,0.8,120,normal,Wheat needs less water; different N/P ratio
+S3,Sandy vs clay soil (maize),Maize,Ludhiana,190,12,105,0.4,6.6,0.5,60,normal,Sandy soil leaches N and K -> split dose
+S4,Sandy vs clay soil (maize),Maize,Nagpur,190,12,105,0.65,7.9,0.7,60,normal,"Clay fixes P -> band P, lower N loss"
+S5,Rainfall -20% (drought) cotton,Cotton,Guntur,260,14,180,0.6,7.5,1.0,40,rain -20%,Drought lowers uptake -> avoid over-dose
+S6,Heavy rain (+40%) maize,Maize,Pune,260,14,180,0.6,7.2,0.6,260,rain +40%,"Heavy rain -> leaching -> raise N within cap, split"
+S7,No deficiency,Wheat,Karnal,620,30,320,0.8,7.3,0.5,80,normal,All nutrients adequate -> no fertilizer
+S8,Over-application risk (P high),Soybean,Indore,300,38,300,0.7,7.8,0.6,120,normal,P already high -> skip P to avoid runoff
+S9,Price spike DAP -> alternative,Chickpea,Indore,240,7,190,0.55,7.7,0.6,90,DAP +25%,DAP price rise -> SSP/organic alternative
+S10,Acidic soil P fixation,Tomato,Bengaluru Rural,230,9,150,0.5,5.3,0.4,150,normal,Acidic -> lime + PSB before P

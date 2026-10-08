@@ -1,0 +1,23 @@
+{
+  "note": "Trained on SYNTHETIC data. Scores show the pipeline works, not real-field accuracy.",
+  "early_warning": {
+    "N": {
+      "f1": 0.559
+    },
+    "P": {
+      "f1": 0.397
+    },
+    "K": {
+      "f1": 0.485
+    }
+  },
+  "yield": {
+    "r2": 0.759,
+    "mae_ratio": 0.054,
+    "conformal_halfwidth_ratio": 0.089,
+    "empirical_coverage": 0.812
+  },
+  "crop_recommender": {
+    "accuracy": 0.949
+  }
+}

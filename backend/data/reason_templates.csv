@@ -1,0 +1,11 @@
+template_id,text
+low_N,Your soil nitrogen is LOW ({N} kg/ha). {crop} needs about {need} kg/ha. We suggest {dose_range} kg/ha of nitrogen.
+low_P,"Phosphorus is LOW ({P} kg/ha). Apply {dose_range} kg/ha P2O5, ideally as a band near the roots."
+low_K,Potassium is LOW ({K} kg/ha). Apply {dose_range} kg/ha K2O.
+no_def,Your soil has enough nutrients for {crop} right now. No fertilizer needed now; re-test next season.
+high_soil,{nutrient} is already HIGH in your soil. Extra {nutrient} will waste money and may harm water. We recommend skipping it.
+weather_up,"Heavy rain recently can wash nitrogen away, so we raised the dose by {pct}% within the safe limit."
+rain_warn,Heavy rain is forecast in the next 48 hours. Please wait before applying to avoid runoff.
+price_alt,{fert} price is rising. {alt} gives the same nutrient for about Rs {saving} less per hectare.
+risk_warn,"Over-application risk is HIGH. We recommend a lab test before applying. This is a warning, not a guarantee of safety."
+conflict,"Weather suggests a deficiency, but your soil report shows {rating}. We followed your soil report."

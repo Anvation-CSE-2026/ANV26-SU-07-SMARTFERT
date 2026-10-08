@@ -1,0 +1,9 @@
+name,value,meaning
+w_over_ratio,0.45,dose / crop cap
+w_leach_risk,0.35,weather x soil texture
+w_soil_high,0.2,soil already high in that nutrient
+risk_limit,0.6,above this -> loop back / warn
+max_tries,3.0,loop-back attempts
+sus_w_risk,0.5,sustainability weight
+sus_w_nue,0.3,nutrient-use efficiency weight
+sus_w_cost,0.2,cost efficiency weight

@@ -1,0 +1,21 @@
+fertilizer,type,N_pct,P2O5_pct,K2O_pct,price_rs_per_50kg_bag,sustainability_score,runoff_risk,ghg_relative,price_rs_per_kg,cost_rs_per_kg_nutrient,note
+Urea,chemical,46.0,0.0,0.0,267,0.35,0.8,1.0,5.34,11.61,Prices are SYNTHETIC placeholders; replace with current local retail
+DAP,chemical,18.0,46.0,0.0,1350,0.4,0.6,0.9,27.0,42.19,Prices are SYNTHETIC placeholders; replace with current local retail
+MOP (Muriate of Potash),chemical,0.0,0.0,60.0,1700,0.55,0.35,0.3,34.0,56.67,Prices are SYNTHETIC placeholders; replace with current local retail
+SSP (Single Super Phosphate),chemical,0.0,16.0,0.0,500,0.55,0.45,0.4,10.0,62.5,Prices are SYNTHETIC placeholders; replace with current local retail
+TSP,chemical,0.0,46.0,0.0,1400,0.45,0.55,0.5,28.0,60.87,Prices are SYNTHETIC placeholders; replace with current local retail
+NPK 10-26-26,chemical,10.0,26.0,26.0,1470,0.45,0.55,0.7,29.4,47.42,Prices are SYNTHETIC placeholders; replace with current local retail
+NPK 20-20-0,chemical,20.0,20.0,0.0,1100,0.45,0.6,0.8,22.0,55.0,Prices are SYNTHETIC placeholders; replace with current local retail
+NPK 12-32-16,chemical,12.0,32.0,16.0,1450,0.45,0.55,0.75,29.0,48.33,Prices are SYNTHETIC placeholders; replace with current local retail
+Ammonium sulphate,chemical,21.0,0.0,0.0,900,0.5,0.6,0.7,18.0,85.71,Prices are SYNTHETIC placeholders; replace with current local retail
+Neem-coated urea,slow-release,46.0,0.0,0.0,270,0.55,0.5,0.85,5.4,11.74,Prices are SYNTHETIC placeholders; replace with current local retail
+Sulphate of potash (SOP),chemical,0.0,0.0,50.0,2600,0.6,0.3,0.3,52.0,104.0,Prices are SYNTHETIC placeholders; replace with current local retail
+Farmyard manure (FYM),organic,0.5,0.2,0.5,100,0.9,0.2,0.2,2.0,166.67,Prices are SYNTHETIC placeholders; replace with current local retail
+Compost,organic,1.5,1.0,1.5,300,0.9,0.2,0.2,6.0,150.0,Prices are SYNTHETIC placeholders; replace with current local retail
+Vermicompost,organic,1.8,1.5,1.2,300,0.92,0.15,0.15,6.0,133.33,Prices are SYNTHETIC placeholders; replace with current local retail
+Poultry manure,organic,3.0,2.5,1.5,350,0.8,0.3,0.35,7.0,100.0,Prices are SYNTHETIC placeholders; replace with current local retail
+Green manure (dhaincha),organic,0.6,0.15,0.5,120,0.95,0.1,0.1,2.4,192.0,Prices are SYNTHETIC placeholders; replace with current local retail
+Rhizobium biofertilizer,bio,0.0,0.0,0.0,60,0.98,0.02,0.02,1.2,,Prices are SYNTHETIC placeholders; replace with current local retail
+Azotobacter / Azospirillum,bio,0.0,0.0,0.0,60,0.98,0.02,0.02,1.2,,Prices are SYNTHETIC placeholders; replace with current local retail
+PSB (phosphate solubilising bacteria),bio,0.0,0.0,0.0,60,0.98,0.02,0.02,1.2,,Prices are SYNTHETIC placeholders; replace with current local retail
+KMB (potash mobilising bacteria),bio,0.0,0.0,0.0,60,0.98,0.02,0.02,1.2,,Prices are SYNTHETIC placeholders; replace with current local retail

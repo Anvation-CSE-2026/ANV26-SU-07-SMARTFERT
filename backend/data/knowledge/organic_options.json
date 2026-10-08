@@ -1,0 +1,22 @@
+{
+  "topic": "organic_options",
+  "keywords": ["organic", "vermicompost", "compost", "fym", "farmyard", "biofertilizer", "rhizobium", "green manure", "sustainable"],
+  "entries": [
+    {
+      "id": "vermicompost",
+      "text": "Vermicompost releases nutrients slowly and improves soil structure and water retention, but it supplies less nitrogen per kg than urea, so a much larger quantity is usually needed to match a full chemical dose."
+    },
+    {
+      "id": "biofertilizers",
+      "text": "Biofertilizers such as Rhizobium (for legumes) and Azotobacter help the crop access nitrogen from the air or soil more efficiently; they work best combined with some organic matter and are not a complete substitute for the full nutrient requirement on their own."
+    },
+    {
+      "id": "green_manure",
+      "text": "Growing a green manure crop like Dhaincha or Sunhemp and ploughing it into the soil before the main crop can add organic matter and some nitrogen, and is especially useful between seasons to rebuild soil health."
+    },
+    {
+      "id": "why_organic_costs_more_sometimes",
+      "text": "Organic and biofertilizer inputs sometimes cost more upfront per hectare than chemical fertilizer for the same nutrient amount, but they can improve soil health, water retention and long-term sustainability, which is why the eco-first plan may show a higher cost but a better sustainability score."
+    }
+  ]
+}

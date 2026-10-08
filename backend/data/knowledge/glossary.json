@@ -1,0 +1,12 @@
+{
+  "topic": "glossary",
+  "keywords": ["what is", "meaning", "mean", "glossary", "term", "explain word"],
+  "entries": [
+    { "id": "npk", "text": "N, P and K are the three main nutrients plants need in large amounts: Nitrogen (N) for leafy growth, Phosphorus (P) for roots and flowering, and Potassium (K) for overall plant strength and disease resistance." },
+    { "id": "oc", "text": "OC (organic carbon) is a measure of organic matter in the soil; higher OC generally means healthier, more fertile soil that holds water and nutrients better." },
+    { "id": "ph", "text": "pH measures how acidic or alkaline the soil is, on a scale where 7 is neutral; most crops grow best in a range of about 6 to 7.5, and pH outside that range can lock up nutrients even if they are present in the soil." },
+    { "id": "nue", "text": "Nutrient-use efficiency (NUE) is the share of applied nutrient the crop is actually likely to take up and use, rather than lose to the environment; a higher NUE means less waste for the same dose." },
+    { "id": "confidence_score", "text": "The confidence score is a rough, honest indicator of how much to trust a specific estimate - based on things like whether your inputs came from a lab report, how well weather and soil signals agreed, and how typical your values are - it is not a guarantee." },
+    { "id": "sustainability_score", "text": "The sustainability score blends nutrient-use efficiency, estimated emissions and nutrient surplus into one number out of 100, to give a quick sense of how environmentally sound a fertilizer plan is." }
+  ]
+}

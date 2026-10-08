@@ -1,0 +1,18 @@
+{
+  "topic": "split_doses",
+  "keywords": ["split", "dose", "how much", "safe", "cap", "limit", "overdose", "excess"],
+  "entries": [
+    {
+      "id": "why_split",
+      "text": "Splitting the total dose into smaller applications across the growing season (instead of one large application) reduces the chance of nutrient loss to leaching or runoff, and matches nutrient supply to the crop's actual uptake pattern at each growth stage."
+    },
+    {
+      "id": "safe_cap",
+      "text": "The safe upper limit (cap) shown for each nutrient is the maximum typically recommended for that crop and soil condition; going meaningfully above it raises the risk of runoff, nutrient imbalance, or wasted input cost without extra yield benefit."
+    },
+    {
+      "id": "why_range_not_single_number",
+      "text": "A dose is shown as a range (low to high) rather than one exact number because soil, weather and crop response vary - the range reflects that natural uncertainty honestly, and the actual best amount can depend on a fresh soil test."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "topic": "application_timing",
+  "keywords": ["when", "timing", "apply", "basal", "top-dress", "top dress", "schedule", "wait", "rain"],
+  "entries": [
+    {
+      "id": "basal_vs_topdress",
+      "text": "Basal dose goes in at or just before sowing; top-dress doses are split later, typically once at early vegetative growth and once before flowering, so the crop gets nutrients when it needs them most instead of all at once."
+    },
+    {
+      "id": "rain_defer",
+      "text": "If heavy rain is forecast in the next 48 hours, it is usually better to wait a few days before applying, especially nitrogen - heavy rain right after application increases runoff and leaching, wasting fertilizer and increasing nutrient loss to water bodies."
+    },
+    {
+      "id": "dry_soil",
+      "text": "Applying fertilizer to very dry soil without any follow-up irrigation can mean the nutrients stay unavailable to roots; light irrigation after application (or applying just before expected rain) usually helps uptake."
+    }
+  ]
+}

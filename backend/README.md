@@ -41,6 +41,11 @@ flag, key or network dependency is missing.
                                 capped at 90 until real verified feedback exists (data/confidence_weights.csv)
     st01/services/history.py    season assignment (data/seasons.csv), split-dose application timeline,
                                 and lazy per-client demo-history seeding so a new client's history is never empty
+    st01/services/chat.py       chatbot: grounds every answer in ONE stored recommendation's own numbers plus
+                                data/knowledge/*.json; calls the Anthropic Messages API when ANTHROPIC_API_KEY +
+                                ST01_LLM_MODEL are set, verified by a number-subset guardrail (no invented doses
+                                or prices survive); otherwise (or if the guardrail trips) falls back to a
+                                template-based intent matcher that needs no network and no key at all
     st01/db.py                  SQLAlchemy models: clients, fields, recommendations, applications, feedback,
                                 calibration, chat_messages, satellite_cache - every row scoped to an anonymous
                                 X-Client-Id (UUID header), never a name/phone/exact address
@@ -76,6 +81,11 @@ a request for someone else's row 404s ("no such recommendation"), it never revea
     GET  /api/history/export.csv
     POST /api/fields                       body: {name, lat, lon, radius_m, area_ha, texture}
     GET  /api/fields
+    POST /api/chat                         body: {message, language, recommendation_id?, history?}
+                                           -> {reply, language, grounded_on, fallback, guardrail, available}
+                                           (recommendation_id must belong to this client or it's ignored -
+                                           same isolation guarantee as /api/history)
+    GET  /api/chat/suggestions?language=&recommendation_id=   a few relevant question chips
 
 ## Honesty notes
 All data is synthetic; model scores (models/metrics.json) show the pipeline works, not real-field accuracy.

@@ -1,0 +1,18 @@
+{
+  "topic": "next_crop",
+  "keywords": ["next crop", "rotation", "next season", "rotate", "after this"],
+  "entries": [
+    {
+      "id": "legume_rotation",
+      "text": "Rotating to a nitrogen-fixing legume (such as green gram, chickpea or pigeon pea) after a heavy-nutrient crop like rice, wheat or maize can help naturally restore some soil nitrogen for the next season."
+    },
+    {
+      "id": "avoid_repeat",
+      "text": "Growing the same heavy-nutrient crop repeatedly on the same plot without a break crop tends to deplete specific nutrients and organic matter faster, which is why a rotation or a season of rest with compost is generally recommended."
+    },
+    {
+      "id": "retest_each_season",
+      "text": "Soil nutrient levels change season to season depending on what was grown and applied, so re-testing before the next crop gives a more accurate picture than reusing old numbers."
+    }
+  ]
+}

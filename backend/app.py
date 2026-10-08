@@ -10,9 +10,9 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from sqlalchemy.pool import StaticPool
 from st01 import config as C, pipeline
-from st01.services import weather, soil, trends, ocr, history
+from st01.services import weather, soil, trends, ocr, history, chat
 from st01.services.ml import registry
-from st01.db import db, get_or_create_client, delete_client_data, Field, Recommendation, Application
+from st01.db import db, get_or_create_client, delete_client_data, Field, Recommendation, Application, ChatMessage
 
 
 class NumpyJSON(DefaultJSONProvider):
@@ -334,6 +334,44 @@ def create_app():
             text = (request.get_json(silent=True) or {}).get("text", "")
             parsed = ocr.parse_report_text(text)
         return jsonify(parsed=parsed, note="Check these values before use; OCR can misread.")
+
+    def _log_chat(rec_id, role, text, lang, flagged):
+        db.session.add(ChatMessage(client_id=g.client_id, rec_id=rec_id, role=role, text=text[:2000], lang=lang, flagged=flagged))
+        db.session.commit()
+
+    @app.post("/api/chat")
+    def chat_ep():
+        if not C.FEATURE_CHAT:
+            return jsonify(available=False, reply=None, note="The chat assistant is not enabled on this server right now.")
+        b = body()
+        message = (b.get("message") or "").strip()
+        if not message:
+            raise pipeline.InputError("message is required")
+        language = b.get("language") or "en"
+        rec_id = b.get("recommendation_id")
+        output = None
+        if rec_id is not None:
+            rec = db.session.get(Recommendation, rec_id)
+            if rec and rec.client_id == g.client_id:
+                output = rec.output_json
+        result = chat.answer(message, language, output, history=b.get("history"))
+        flagged = result.get("guardrail") == "injection_refused" or chat.looks_like_injection(message)
+        _log_chat(rec_id, "user", message, language, flagged)
+        _log_chat(rec_id, "assistant", result["reply"], language, False)
+        result["available"] = True
+        return jsonify(result)
+
+    @app.get("/api/chat/suggestions")
+    def chat_suggestions():
+        if not C.FEATURE_CHAT:
+            return jsonify(available=False, suggestions=[])
+        rec_id = request.args.get("recommendation_id", type=int)
+        output = None
+        if rec_id is not None:
+            rec = db.session.get(Recommendation, rec_id)
+            if rec and rec.client_id == g.client_id:
+                output = rec.output_json
+        return jsonify(available=True, suggestions=chat.suggestions(output, request.args.get("language", "en")))
 
     return app
 

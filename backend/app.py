@@ -1,16 +1,18 @@
 """ST-01 backend (Flask).  Local: python app.py     Render: gunicorn "app:create_app()" """
+import csv
 import datetime as dt
+import io
 import uuid
 import numpy as np
-from flask import Flask, jsonify, request, g
+from flask import Flask, jsonify, request, g, Response
 from flask.json.provider import DefaultJSONProvider
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from sqlalchemy.pool import StaticPool
 from st01 import config as C, pipeline
-from st01.services import weather, soil, trends, ocr
+from st01.services import weather, soil, trends, ocr, history
 from st01.services.ml import registry
-from st01.db import db, get_or_create_client, delete_client_data
+from st01.db import db, get_or_create_client, delete_client_data, Field, Recommendation, Application
 
 
 class NumpyJSON(DefaultJSONProvider):
@@ -163,7 +165,144 @@ def create_app():
 
     @app.post("/api/recommend")
     def recommend():
-        return jsonify(pipeline.recommend(body()))
+        b = body()
+        result = pipeline.recommend(b)
+        if b.get("save"):
+            field_id = b.get("field_id")
+            if field_id is not None:
+                f = db.session.get(Field, field_id)
+                if not f or f.client_id != g.client_id:
+                    raise pipeline.InputError("unknown field_id for this client")
+            rec = Recommendation(
+                client_id=g.client_id, field_id=field_id, season=history.season_for(),
+                crop=result["crop"], inputs_json=b, output_json=result,
+                model_version=registry.metrics.get("version", "v1"), status="planned",
+                confidence=result.get("confidence", {}).get("score"),
+                sustainability=result.get("sustainability", {}).get("score"),
+            )
+            db.session.add(rec)
+            db.session.commit()
+            result["recommendation_id"] = rec.id
+        return jsonify(result)
+
+    def _owned_recommendation(rec_id):
+        """404s (never 403) for another client's row, so its existence is never leaked."""
+        rec = db.session.get(Recommendation, rec_id)
+        if not rec or rec.client_id != g.client_id:
+            return None
+        return rec
+
+    def _history_query():
+        q = Recommendation.query.filter_by(client_id=g.client_id)
+        season = request.args.get("season")
+        crop = request.args.get("crop")
+        field_id = request.args.get("field_id", type=int)
+        if season:
+            q = q.filter_by(season=season)
+        if crop:
+            q = q.filter_by(crop=crop)
+        if field_id is not None:
+            q = q.filter_by(field_id=field_id)
+        return q.order_by(Recommendation.created_at.desc())
+
+    def _rec_summary(rec):
+        return {
+            "id": rec.id, "field_id": rec.field_id, "season": rec.season,
+            "created_at": rec.created_at.isoformat(), "crop": rec.crop, "status": rec.status,
+            "confidence": rec.confidence, "sustainability": rec.sustainability, "simulated": rec.simulated,
+            "cost": (rec.output_json or {}).get("plan", {}).get("cost") if rec.output_json else None,
+        }
+
+    @app.get("/api/history")
+    def get_history():
+        if not C.FEATURE_HISTORY:
+            return jsonify(available=False, items=[], note="History is not enabled on this server right now.")
+        history.seed_demo_history(g.client_id)
+        items = [_rec_summary(r) for r in _history_query().all()]
+        return jsonify(available=True, items=items)
+
+    @app.get("/api/history/<int:rec_id>")
+    def get_history_item(rec_id):
+        rec = _owned_recommendation(rec_id)
+        if not rec:
+            raise pipeline.InputError("no such recommendation for this client")
+        apps = Application.query.filter_by(rec_id=rec.id).order_by(Application.date).all()
+        sowing = apps[0].date if apps else None
+        schedule = history.application_schedule(sowing or dt.date.today(),
+                                                  (rec.output_json or {}).get("dose", {}),
+                                                  (rec.output_json or {}).get("defer_application", False))
+        return jsonify(id=rec.id, field_id=rec.field_id, season=rec.season, created_at=rec.created_at.isoformat(),
+                       crop=rec.crop, status=rec.status, confidence=rec.confidence, sustainability=rec.sustainability,
+                       simulated=rec.simulated, inputs=rec.inputs_json, output=rec.output_json,
+                       applications=[{"id": a.id, "date": a.date.isoformat() if a.date else None, "items": a.items_json} for a in apps],
+                       suggested_schedule=schedule)
+
+    @app.patch("/api/history/<int:rec_id>/status")
+    def patch_history_status(rec_id):
+        rec = _owned_recommendation(rec_id)
+        if not rec:
+            raise pipeline.InputError("no such recommendation for this client")
+        b = body()
+        status = b.get("status")
+        if status not in ("planned", "applied", "partially", "skipped"):
+            raise pipeline.InputError("status must be one of planned, applied, partially, skipped")
+        rec.status = status
+        db.session.commit()
+        return jsonify(id=rec.id, status=rec.status)
+
+    @app.post("/api/history/<int:rec_id>/applications")
+    def post_application(rec_id):
+        rec = _owned_recommendation(rec_id)
+        if not rec:
+            raise pipeline.InputError("no such recommendation for this client")
+        b = body()
+        try:
+            date_ = dt.date.fromisoformat(b["date"]) if b.get("date") else dt.date.today()
+        except (KeyError, ValueError):
+            raise pipeline.InputError("date must be an ISO date (YYYY-MM-DD)")
+        app_row = Application(rec_id=rec.id, date=date_, items_json=b.get("items") or [])
+        db.session.add(app_row)
+        db.session.commit()
+        return jsonify(id=app_row.id, rec_id=rec.id, date=app_row.date.isoformat(), items=app_row.items_json)
+
+    @app.delete("/api/history/<int:rec_id>")
+    def delete_history_item(rec_id):
+        rec = _owned_recommendation(rec_id)
+        if not rec:
+            raise pipeline.InputError("no such recommendation for this client")
+        Application.query.filter_by(rec_id=rec.id).delete(synchronize_session=False)
+        db.session.delete(rec)
+        db.session.commit()
+        return jsonify(status="deleted")
+
+    @app.get("/api/history/export.csv")
+    def export_history_csv():
+        rows = _history_query().all()
+        buf = io.StringIO()
+        w = csv.writer(buf)
+        w.writerow(["id", "created_at", "season", "crop", "status", "confidence", "sustainability", "cost_rs_per_ha", "simulated"])
+        for r in rows:
+            w.writerow([r.id, r.created_at.isoformat(), r.season, r.crop, r.status, r.confidence, r.sustainability,
+                        (r.output_json or {}).get("plan", {}).get("cost") if r.output_json else "", r.simulated])
+        return Response(buf.getvalue(), mimetype="text/csv",
+                        headers={"Content-Disposition": "attachment; filename=history.csv"})
+
+    @app.post("/api/fields")
+    def post_field():
+        b = body()
+        if not b.get("name"):
+            raise pipeline.InputError("field name is required")
+        f = Field(client_id=g.client_id, name=b["name"], lat=b.get("lat"), lon=b.get("lon"),
+                  radius_m=b.get("radius_m"), area_ha=b.get("area_ha"), texture=b.get("texture"))
+        db.session.add(f)
+        db.session.commit()
+        return jsonify(id=f.id, name=f.name, lat=f.lat, lon=f.lon, radius_m=f.radius_m, area_ha=f.area_ha, texture=f.texture)
+
+    @app.get("/api/fields")
+    def get_fields():
+        rows = Field.query.filter_by(client_id=g.client_id).order_by(Field.created_at.desc()).all()
+        return jsonify([{"id": f.id, "name": f.name, "lat": f.lat, "lon": f.lon, "radius_m": f.radius_m,
+                          "area_ha": f.area_ha, "texture": f.texture} for f in rows])
 
     @app.post("/api/compare")
     def compare():

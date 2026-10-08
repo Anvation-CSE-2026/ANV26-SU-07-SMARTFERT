@@ -56,6 +56,7 @@ class Recommendation(db.Model):
     status = db.Column(db.String(16), default="planned")  # planned|applied|partially|skipped
     confidence = db.Column(db.Float)
     sustainability = db.Column(db.Float)
+    simulated = db.Column(db.Boolean, default=False, nullable=False)  # seeded demo row, not a real farmer's data
 
 
 class Application(db.Model):

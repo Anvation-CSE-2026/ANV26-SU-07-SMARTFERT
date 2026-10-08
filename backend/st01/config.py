@@ -24,6 +24,7 @@ SUST = csv("sustainability_params.csv").set_index("parameter")["value"].astype(f
 TEMPLATES = csv("reason_templates.csv").set_index("template_id")["text"].to_dict()
 CONF_WEIGHTS = csv("confidence_weights.csv").set_index("name")["value"].astype(float).to_dict()
 INPUT_PCTL = csv("input_percentiles.csv").set_index("feature")[["p5", "p95"]].astype(float).to_dict(orient="index")
+SEASONS = csv("seasons.csv").set_index("season")[["start_month", "end_month"]].astype(int).to_dict(orient="index")
 
 _th = csv("soil_rating_thresholds.csv").set_index("parameter")
 CUT = {"N": (float(_th.loc["N_kg_ha", "low_below"]), float(_th.loc["N_kg_ha", "high_above"])),
@@ -50,8 +51,11 @@ def _flag(name, default="false"):
 # ---------------- feature flags (env) ----------------
 # Each gated feature must degrade gracefully (clear "not available" response) when its
 # flag, key or network dependency is missing - it must never crash the request.
-FEATURE_FEEDBACK = _flag("FEATURE_FEEDBACK")
-FEATURE_HISTORY = _flag("FEATURE_HISTORY")
+# History/Feedback are local-only (no external key or network dependency), so they
+# default ON; Chat and Satellite call out to paid/keyed services, so they default OFF
+# until an operator deliberately turns them on (and supplies the matching keys).
+FEATURE_FEEDBACK = _flag("FEATURE_FEEDBACK", default="true")
+FEATURE_HISTORY = _flag("FEATURE_HISTORY", default="true")
 FEATURE_CHAT = _flag("FEATURE_CHAT")
 FEATURE_SATELLITE = _flag("FEATURE_SATELLITE")
 SAT_PROVIDER = os.environ.get("SAT_PROVIDER", "demo").strip().lower()  # demo|copernicus|earthengine|planetary

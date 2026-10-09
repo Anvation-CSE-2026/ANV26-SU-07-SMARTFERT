@@ -167,7 +167,7 @@ def recommend(payload):
     adaptive_meta = adaptive.build_meta(calib_row, ignore_adaptive)
     if calib_row and not ignore_adaptive:
         mult = {"N": calib_row.dose_mult_N, "P": calib_row.dose_mult_P, "K": calib_row.dose_mult_K}
-        dose = {n: min(dose[n] * mult[n], cap[n]) for n in C.NUT}
+        dose = {n: float(min(dose[n] * mult[n], cap[n])) for n in C.NUT}
 
     # ---------------- S7: cost optimisation + price trend ----------------
     price_now = optimizer.prices(inp["price_overrides"])

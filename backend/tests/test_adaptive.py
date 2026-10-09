@@ -106,10 +106,40 @@ def test_dose_multiplier_always_within_bounds_and_never_exceeds_cap(client):
         assert row is not None
         assert C.ADAPTIVE["dose_mult_min"] <= row.dose_mult_N <= C.ADAPTIVE["dose_mult_max"]
 
-    r = client.post("/api/recommend", json=dict(RICE, district="Jaipur"), headers={"X-Client-Id": c}).get_json()
+    # save=True exercises the DB write of the full response (output_json) - the
+    # crop's cap_*_kg_ha columns are integer dtype, so a dose clamped right at the
+    # cap must come back as a plain float here, not a numpy int64 the JSON column
+    # can't serialize (regression check for that exact crash).
+    resp = client.post("/api/recommend", json=dict(RICE, district="Jaipur", save=True), headers={"X-Client-Id": c})
+    assert resp.status_code == 200
+    r = resp.get_json()
     assert r["dose"]["N"]["point"] <= r["dose"]["N"]["cap"] + 1e-6
     assert r["adaptive"]["applied"] is True
     assert r["adaptive"]["dose_multiplier"]["N"] > 1.0  # under-applied signal -> nudged up
+
+
+def test_recommend_with_save_succeeds_when_adaptive_pushes_dose_past_the_cap(client):
+    """Deterministic regression test for the numpy-int64 crash: the crop table's
+    cap_*_kg_ha columns are integer dtype, so pandas hands them back as numpy
+    int64. A very low soil N already clamps the base dose to the cap before
+    adaptive even runs; multiplying that by the max dose multiplier (1.15) then
+    forces the adaptive re-clamp's min(dose*mult, cap) to pick the numpy int64
+    cap value. Saving that straight into the JSON output_json column used to
+    raise `TypeError: Object of type int64 is not JSON serializable`."""
+    c = cid()
+    with client.application.app_context():
+        from st01.db import db, Calibration
+
+        row = Calibration(crop="Rice", region_key="Patna", n_reports=20,
+                           dose_mult_N=C.ADAPTIVE["dose_mult_max"], dose_mult_P=1.0, dose_mult_K=1.0,
+                           yield_bias=0.0, simulated=True)
+        db.session.add(row)
+        db.session.commit()
+
+    resp = client.post("/api/recommend", json=dict(RICE, district="Patna", N=10, save=True), headers={"X-Client-Id": c})
+    assert resp.status_code == 200
+    r = resp.get_json()
+    assert r["dose"]["N"]["point"] == r["dose"]["N"]["cap"]  # confirms the cap branch of min() actually fired
 
 
 def test_yield_bias_only_activates_at_the_report_threshold(client):

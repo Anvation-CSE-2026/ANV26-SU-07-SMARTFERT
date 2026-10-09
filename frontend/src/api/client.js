@@ -212,4 +212,19 @@ export const api = {
       () => http.get("/api/chat/suggestions", { params }),
       () => ({ available: false, suggestions: [] })
     ),
+
+  // --- Feedback-loop learning: server-side only (the calibration it feeds
+  // lives in the backend's DB), so mock mode degrades to a clear message
+  // rather than pretending a star rating changed anything.
+  postFeedback: (payload) =>
+    callOrMock(
+      () => http.post("/api/feedback", payload),
+      () => ({ available: false, note: "Feedback needs a connection to the server to be saved." })
+    ),
+
+  getFeedbackSummary: (params) =>
+    callOrMock(
+      () => http.get("/api/feedback/summary", { params }),
+      () => ({ available: false })
+    ),
 };

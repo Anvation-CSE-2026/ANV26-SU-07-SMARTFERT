@@ -7,11 +7,24 @@ import { DecisionStep } from "../components/explain/DecisionStep";
 import { DriversChart } from "../components/explain/DriversChart";
 import { WhatIfPanel } from "../components/explain/WhatIfPanel";
 import { WeatherReliabilityCard } from "../components/common/WeatherReliabilityCard";
+import { AdaptiveLearningCard } from "../components/recommendation/AdaptiveLearningCard";
 import { useAppStore } from "../store/useAppStore";
 import { api } from "../api/client";
 import { objectiveLabelKey } from "../utils/format";
 
 const NUTRIENT_LABEL = { N: "Nitrogen", P: "Phosphorus", K: "Potassium" };
+
+// The real backend's rule_trace entries are structured objects (nutrient/step/detail,
+// or rule/reason/advice/effect_pct); the mock engine's are plain sentences. Both render
+// the same way here so neither source can crash this page.
+function balanceText(b) {
+  return typeof b === "string" ? b : b.detail;
+}
+function weatherRuleText(w) {
+  if (typeof w === "string") return w;
+  const pct = w.effect_pct > 0 ? `+${w.effect_pct}%` : `${w.effect_pct}%`;
+  return `${w.reason} (${pct}) — ${w.advice}`;
+}
 
 export default function Explain() {
   const { t } = useTranslation();
@@ -73,7 +86,7 @@ export default function Explain() {
           description={t("explain.step3Desc")}
           visual={
             <ul className="text-sm text-green-800 list-disc list-inside space-y-0.5">
-              {r.rule_trace.balance.map((b, i) => <li key={i}>{b}</li>)}
+              {r.rule_trace.balance.map((b, i) => <li key={i}>{balanceText(b)}</li>)}
             </ul>
           }
         />
@@ -86,7 +99,7 @@ export default function Explain() {
             <div className="space-y-3">
               <ul className="text-sm text-green-800 list-disc list-inside space-y-0.5">
                 {r.rule_trace.weather_and_trend_rules.length ? (
-                  r.rule_trace.weather_and_trend_rules.map((w, i) => <li key={i}>{w}</li>)
+                  r.rule_trace.weather_and_trend_rules.map((w, i) => <li key={i}>{weatherRuleText(w)}</li>)
                 ) : (
                   <li>No significant weather adjustment was needed this time.</li>
                 )}
@@ -119,7 +132,7 @@ export default function Explain() {
               {r.plan.sustainability_score}/100 sustainability
             </p>
           }
-          technical={`price_signals.urea.direction=${r.price_signals.urea.direction}, dap.direction=${r.price_signals.dap.direction}`}
+          technical={`price_signals.urea.direction=${r.price_signals?.Urea?.direction ?? r.price_signals?.urea?.direction ?? "n/a"}, dap.direction=${r.price_signals?.DAP?.direction ?? r.price_signals?.dap?.direction ?? "n/a"}`}
         />
 
         <DecisionStep
@@ -155,6 +168,10 @@ export default function Explain() {
           }
           technical={modelInfo ? JSON.stringify(modelInfo, null, 2) : ""}
         />
+      </div>
+
+      <div className="mt-4">
+        <AdaptiveLearningCard input={lastInput} result={lastResult} />
       </div>
 
       <WhatIfPanel baseInput={lastInput} baseResult={lastResult} />

@@ -4,6 +4,7 @@ import { Card, CardBody } from "../common/Card";
 import { Badge } from "../common/Badge";
 import { Button } from "../common/Button";
 import { fmtCurrency, cropLabel } from "../../utils/format";
+import { FeedbackForm } from "./FeedbackForm";
 
 const STATUS_TONE = { planned: "mint", applied: "green", partially: "amber", skipped: "gray" };
 
@@ -13,6 +14,7 @@ export function SeasonTimelineItem({ item, onStatusChange, onLogApplication, onD
   const [appDate, setAppDate] = useState(() => new Date().toISOString().slice(0, 10));
   const [appNote, setAppNote] = useState("");
   const [busy, setBusy] = useState(false);
+  const [sharingFeedback, setSharingFeedback] = useState(false);
 
   async function submitApplication() {
     setBusy(true);
@@ -75,6 +77,11 @@ export function SeasonTimelineItem({ item, onStatusChange, onLogApplication, onD
               {t("season.logApplication")}
             </Button>
           )}
+          {item.source === "server" && (
+            <Button size="sm" variant="ghost" onClick={() => setSharingFeedback((o) => !o)}>
+              {t("feedback.shareButton")}
+            </Button>
+          )}
           <Button size="sm" variant="ghost" className="text-red-600" onClick={() => onDelete(item)}>
             {t("common.delete")}
           </Button>
@@ -98,6 +105,12 @@ export function SeasonTimelineItem({ item, onStatusChange, onLogApplication, onD
             <Button size="sm" onClick={submitApplication} disabled={busy}>
               {busy ? t("common.loading") : t("common.save")}
             </Button>
+          </div>
+        )}
+
+        {sharingFeedback && (
+          <div className="mt-3">
+            <FeedbackForm recommendationId={item.id} onDone={() => setSharingFeedback(false)} onCancel={() => setSharingFeedback(false)} />
           </div>
         )}
 

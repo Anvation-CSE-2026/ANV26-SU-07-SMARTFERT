@@ -13,6 +13,7 @@ import { YieldRiskSection } from "../components/recommendation/YieldRiskSection"
 import { RotationSection } from "../components/recommendation/RotationSection";
 import { SustainabilitySection } from "../components/recommendation/SustainabilitySection";
 import { ConfidenceGaugeSection } from "../components/recommendation/ConfidenceGaugeSection";
+import { AdaptiveLearningCard } from "../components/recommendation/AdaptiveLearningCard";
 import { ActionsSection } from "../components/recommendation/ActionsSection";
 import { useAppStore } from "../store/useAppStore";
 import { ROTATION_TIPS } from "../data/staticData";
@@ -56,6 +57,7 @@ export default function Recommendation() {
             <ConfidenceGaugeSection confidence={lastResult.confidence} />
             <SustainabilitySection sustainability={lastResult.sustainability} plan={lastResult.plan} alternatives={lastResult.alternatives} />
           </div>
+          <AdaptiveLearningCard input={lastInput} result={lastResult} />
         </>
       )}
 

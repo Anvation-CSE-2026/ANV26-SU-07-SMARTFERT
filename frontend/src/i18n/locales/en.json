@@ -385,5 +385,30 @@
     "greeting": "Ask me things like why a nutrient is low, how much to apply, or when to apply it.",
     "inputPlaceholder": "Type your question…",
     "send": "Send"
+  },
+  "feedback": {
+    "shareButton": "Share feedback",
+    "title": "How did it go?",
+    "appliedStatus": "Did you apply this recommendation?",
+    "statusYes": "Yes, fully",
+    "statusPartly": "Partly",
+    "statusNo": "Not yet",
+    "issues": "Did you notice any of these?",
+    "issueYellowing": "Yellowing leaves",
+    "issueLodging": "Lodging (crop falling over)",
+    "issueRunoffEvent": "Heavy rain washed fertilizer away",
+    "actualYield": "Actual yield, if harvested (t/ha)",
+    "actualYieldPlaceholder": "e.g. 4.2",
+    "retest": "New soil test results, if you have them (optional)",
+    "rating": "How would you rate this recommendation?",
+    "disclaimer": "Your feedback helps improve future recommendations for farmers nearby. It never overrides your soil report or the safety limits.",
+    "submit": "Submit feedback",
+    "thanksVerified": "Thank you — this includes a retest or actual yield, so it will help calibrate future recommendations.",
+    "thanksUnverified": "Thank you for sharing. Add a retest or actual yield next time to help calibrate future recommendations."
+  },
+  "adaptive": {
+    "title": "Learning from farmers like you",
+    "yieldBias": "Past results near you suggest adjusting the yield estimate by {{pct}}%.",
+    "ignoreToggle": "Ignore this adjustment and show the plain recommendation"
   }
 }

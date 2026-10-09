@@ -1,0 +1,10 @@
+name,value,meaning
+dose_prior_pseudo_count,10,shrinkage weight toward a multiplier of 1.0 before any feedback exists
+dose_step_pct,2,how much each confirming report nudges a nutrient's dose multiplier (percent)
+dose_mult_min,0.85,hard floor on the dose multiplier - applied before crop caps so the cap is still the final word
+dose_mult_max,1.15,hard ceiling on the dose multiplier
+min_verified_reports_for_yield,5,yield-bias recalibration only activates once this many verified reports with an actual yield exist
+yield_bias_ewma_alpha,0.3,exponential-weighted-moving-average smoothing factor for the yield residual ratio
+yield_bias_min_pct,-15,floor on the applied yield bias (percent)
+yield_bias_max_pct,15,ceiling on the applied yield bias (percent)
+outlier_mad_threshold,3.5,a report's residual must be within this many robust (MAD-based) standard deviations to count as verified

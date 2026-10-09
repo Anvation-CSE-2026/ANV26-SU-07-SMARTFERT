@@ -25,6 +25,7 @@ TEMPLATES = csv("reason_templates.csv").set_index("template_id")["text"].to_dict
 CONF_WEIGHTS = csv("confidence_weights.csv").set_index("name")["value"].astype(float).to_dict()
 INPUT_PCTL = csv("input_percentiles.csv").set_index("feature")[["p5", "p95"]].astype(float).to_dict(orient="index")
 SEASONS = csv("seasons.csv").set_index("season")[["start_month", "end_month"]].astype(int).to_dict(orient="index")
+ADAPTIVE = csv("adaptive_params.csv").set_index("name")["value"].astype(float).to_dict()
 
 _th = csv("soil_rating_thresholds.csv").set_index("parameter")
 CUT = {"N": (float(_th.loc["N_kg_ha", "low_below"]), float(_th.loc["N_kg_ha", "high_above"])),

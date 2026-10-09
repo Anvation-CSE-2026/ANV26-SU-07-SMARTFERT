@@ -1,7 +1,7 @@
 """The full ST-01 pipeline (S1..S12). Report wins over weather prediction; every output is an estimate/range, never a guarantee."""
 import datetime as dt
 from . import config as C
-from .services import rules, risk as R, optimizer, trends, weather, soil, wording, confidence
+from .services import rules, risk as R, optimizer, trends, weather, soil, wording, confidence, adaptive
 from .services.ml import registry
 
 DISCLAIMER = ("Estimates and ranges only, not guaranteed yield. Values are based on synthetic/assumed parameters for this prototype; "
@@ -110,6 +110,7 @@ def recommend(payload):
         soil_report_age_years = float(payload.get("soil_report_age_years")) if payload.get("soil_report_age_years") not in (None, "") else None
     except (TypeError, ValueError):
         soil_report_age_years = None
+    ignore_adaptive = bool(payload.get("ignore_adaptive"))
     district, lat, lon, src, notes = resolve_context(inp)
     crop = inp["crop"]
     cr = C.CROPS.loc[crop]
@@ -143,7 +144,7 @@ def recommend(payload):
         out.update(no_deficiency=True, message=why[0], dose={}, plan=None, alternatives={}, price_signals={},
                    yield_estimate=_yield_block(y, None), risk={"score": 0.05, "warning": False},
                    sustainability={"score": 95, "band": "good", "note": "No fertilizer applied, so no surplus or emissions from inputs."},
-                   confidence=conf, why=why, rule_trace=[], advice=[])
+                   confidence=conf, adaptive={"applied": False, "available": False, "n_reports": 0}, why=why, rule_trace=[], advice=[])
         return _finish(out, inp)
 
     # ---------------- S5: nutrient balance, S6: weather + trend adjustment ----------------
@@ -158,6 +159,16 @@ def recommend(payload):
     lb = R.loop_back(dose, cap, rating, leach)
     dose = {n: v * lb["scale"] for n, v in dose.items()}
 
+    # ---------------- adaptive feedback-loop learning (bounded, optional) ----------------
+    # Nudges the dose toward what verified local reports say actually happened -
+    # never above the crop cap, never without >= min_verified_reports_for_yield
+    # reports for the yield side, and the farmer can always switch it off.
+    calib_row = adaptive.get_calibration(crop, district)
+    adaptive_meta = adaptive.build_meta(calib_row, ignore_adaptive)
+    if calib_row and not ignore_adaptive:
+        mult = {"N": calib_row.dose_mult_N, "P": calib_row.dose_mult_P, "K": calib_row.dose_mult_K}
+        dose = {n: min(dose[n] * mult[n], cap[n]) for n in C.NUT}
+
     # ---------------- S7: cost optimisation + price trend ----------------
     price_now = optimizer.prices(inp["price_overrides"])
     sig = trends.price_signals(list(C.PRICES.fertilizer.unique()))
@@ -171,6 +182,9 @@ def recommend(payload):
     supply = chosen["supply"]
     y = registry.predict_yield(crop, inp["texture"], soil_v, inp["OC"], inp["pH"], supply, inp["rain90"], inp["temp"], anom, explain=True)
     y0 = registry.predict_yield(crop, inp["texture"], soil_v, inp["OC"], inp["pH"], {}, inp["rain90"], inp["temp"], anom)
+    if calib_row and not ignore_adaptive and adaptive.yield_bias_active(calib_row):
+        yfactor = 1 + calib_row.yield_bias / 100
+        y = {**y, "low": y["low"] * yfactor, "point": y["point"] * yfactor, "high": y["high"] * yfactor}
     whatif = {}
     for label, mult in (("N dose -20%", 0.8), ("N dose +20%", 1.2)):
         s2 = dict(supply); s2["N"] = supply["N"] * mult
@@ -208,8 +222,14 @@ def recommend(payload):
         alt_set = {i["fertilizer"] for i in pa["items"]}
         why.append(_fmt("price_alt", fert=", ".join(sorted(now_set - alt_set)) or "current mix",
                         alt=", ".join(sorted(alt_set - now_set)) or "the alternative mix", saving=pa["saving_rs_per_ha"]))
+    if adaptive_meta["applied"]:
+        why.append(adaptive_meta["message"])
 
-    conf = confidence.compute(inp, rating, prior, y, src, soil_report_age_years=soil_report_age_years)
+    # Once enough verified local reports exist, they can lift the honesty cap
+    # on the confidence score too (see confidence.py) - a handful of reports
+    # barely move it; min_verified_reports_for_yield+ worth is a full signal.
+    feedback_support = min(1.0, calib_row.n_reports / 20) if calib_row and calib_row.n_reports > 0 else None
+    conf = confidence.compute(inp, rating, prior, y, src, soil_report_age_years=soil_report_age_years, feedback_support=feedback_support)
 
     out.update(no_deficiency=False,
                dose={n: {"point": round(dose[n], 1), "low": round(dose[n] * (1 - C.DOSE_UNCERTAINTY), 1),
@@ -221,7 +241,7 @@ def recommend(payload):
                yield_estimate=_yield_block(y, y0, whatif),
                risk={"score": round(lb["risk"], 2), "limit": lb["limit"], "loop_back_tries": lb["tries"], "warning": lb["warning"],
                      "text": _fmt("risk_warn") if lb["warning"] else None, "leach_component": round(leach, 2)},
-               sustainability=sus, confidence=conf, why=why,
+               sustainability=sus, confidence=conf, adaptive=adaptive_meta, why=why,
                rule_trace={"balance": trace, "weather_and_trend_rules": fired})
     return _finish(out, inp)
 

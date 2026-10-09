@@ -9,7 +9,7 @@
 ## Environment variables
     DATABASE_URL            default sqlite:///st01.db (use Postgres in production - Render's free
                              disk is ephemeral and a sqlite file there will not survive a redeploy)
-    ST01_ADMIN_TOKEN         required to call /api/admin/* endpoints once they exist; unset = disabled
+    ST01_ADMIN_TOKEN         required to call /api/admin/* (e.g. recalibrate); unset = those endpoints 401
     FEATURE_HISTORY          default on - local-only (My Season / history), no external key needed
     FEATURE_FEEDBACK         default on - local-only (feedback-loop learning), no external key needed
     FEATURE_CHAT             default off - needs ANTHROPIC_API_KEY + ST01_LLM_MODEL to do anything useful
@@ -46,6 +46,21 @@ flag, key or network dependency is missing.
                                 ST01_LLM_MODEL are set, verified by a number-subset guardrail (no invented doses
                                 or prices survive); otherwise (or if the guardrail trips) falls back to a
                                 template-based intent matcher that needs no network and no key at all
+    st01/services/adaptive.py   feedback-loop learning: a per (crop, region) dose multiplier (shrinkage toward
+                                1.0, prior pseudo-count 10, clipped to [0.85, 1.15], applied before crop caps)
+                                and a yield-estimate bias (EWMA of actual/predicted residuals, clipped to
+                                +/-15%, only active once min_verified_reports_for_yield reports exist) -
+                                editable in data/adaptive_params.csv. A report only counts once it carries a
+                                retest or an actual yield (not a star rating alone) and passes a robust
+                                (MAD-based) outlier check. Never overrides the soil report or the rule engine's
+                                own +/-20% weather limit - it only nudges within its own hard bounds.
+    scripts/seed_simulated_feedback.py   seeds clearly-flagged SIMULATED recommendation+feedback pairs (under a
+                                fixed demo client id) so the adaptive loop can be demonstrated immediately;
+                                every row it touches has simulated=true end to end
+    scripts/retrain_with_feedback.py     offline: merges verified feedback (weighted 5x a synthetic row) into
+                                the yield model's training data, trains a candidate, and promotes it over the
+                                live model only if it is not worse - keeps a versioned backup in
+                                models/registry.json so `--rollback` can restore the previous version
     st01/db.py                  SQLAlchemy models: clients, fields, recommendations, applications, feedback,
                                 calibration, chat_messages, satellite_cache - every row scoped to an anonymous
                                 X-Client-Id (UUID header), never a name/phone/exact address
@@ -65,9 +80,12 @@ a request for someone else's row 404s ("no such recommendation"), it never revea
     POST /api/recommend                    body: crop, N, P, K (required) + district or lat/lon; optional texture, pH, OC,
                                            rain30, rain90, rain48, temp, target, objective (cheapest|balanced_inm|eco_inm),
                                            dap_change, urea_change, price_changes{fert:pct}, polish, language,
-                                           save (persist to history), field_id, soil_report_age_years
-                                           -> adds `confidence` (score/band/components/how_to_improve) to the
-                                           usual response, and `recommendation_id` when save=true
+                                           save (persist to history), field_id, soil_report_age_years,
+                                           ignore_adaptive (skip the learned dose/yield nudge, see below)
+                                           -> adds `confidence` (score/band/components/how_to_improve) and
+                                           `adaptive` (applied/available/n_reports/dose_multiplier/
+                                           yield_bias_pct/message) to the usual response, and
+                                           `recommendation_id` when save=true
     POST /api/compare                      body: {A:{...}, B:{...}}  -> both results + why_it_changed
     POST /api/crop-recommend               body: district, N, P, K, (pH, temp, humidity, rainfall)
     POST /api/parse-report                 body: {text} or multipart file (PDF)
@@ -86,6 +104,16 @@ a request for someone else's row 404s ("no such recommendation"), it never revea
                                            (recommendation_id must belong to this client or it's ignored -
                                            same isolation guarantee as /api/history)
     GET  /api/chat/suggestions?language=&recommendation_id=   a few relevant question chips
+    POST /api/feedback                     body: {recommendation_id, applied_status: yes|partly|no, issues?:
+                                           [yellowing|lodging|runoff_event], actual_yield_t_ha?, retest?:
+                                           {N,P,K,pH,OC}, rating?: 1-5} -> {id, verified, flagged_outlier, note}
+                                           (one feedback per recommendation; recommendation_id must belong to
+                                           this client). POST /api/recommend accepts ignore_adaptive: true to
+                                           re-run without any learned adjustment - the response's `adaptive`
+                                           block tells you what would have applied either way.
+    GET  /api/feedback/summary?crop=&district=   anonymised aggregates only (n_reports, avg_rating, avg yield)
+    POST /api/admin/recalibrate            header X-Admin-Token: <ST01_ADMIN_TOKEN> - recomputes every
+                                           crop/region Calibration row from scratch
 
 ## Honesty notes
 All data is synthetic; model scores (models/metrics.json) show the pipeline works, not real-field accuracy.

@@ -10,9 +10,9 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from sqlalchemy.pool import StaticPool
 from st01 import config as C, pipeline
-from st01.services import weather, soil, trends, ocr, history, chat
+from st01.services import weather, soil, trends, ocr, history, chat, adaptive
 from st01.services.ml import registry
-from st01.db import db, get_or_create_client, delete_client_data, Field, Recommendation, Application, ChatMessage
+from st01.db import db, get_or_create_client, delete_client_data, Field, Recommendation, Application, ChatMessage, Feedback, Calibration
 
 
 class NumpyJSON(DefaultJSONProvider):
@@ -372,6 +372,72 @@ def create_app():
             if rec and rec.client_id == g.client_id:
                 output = rec.output_json
         return jsonify(available=True, suggestions=chat.suggestions(output, request.args.get("language", "en")))
+
+    @app.post("/api/feedback")
+    def post_feedback():
+        if not C.FEATURE_FEEDBACK:
+            return jsonify(available=False, note="Feedback is not enabled on this server right now.")
+        b = body()
+        rec_id = b.get("recommendation_id")
+        rec = db.session.get(Recommendation, rec_id) if rec_id is not None else None
+        if not rec or rec.client_id != g.client_id:
+            raise pipeline.InputError("no such recommendation for this client")
+        if Feedback.query.filter_by(rec_id=rec.id).first():
+            raise pipeline.InputError("feedback has already been submitted for this recommendation")
+
+        cleaned = adaptive.validate_feedback(b)
+        verified, flagged_outlier = adaptive.determine_verification(rec.crop, adaptive.region_key_for((rec.inputs_json or {}).get("district")), cleaned)
+        fb = Feedback(rec_id=rec.id, client_id=g.client_id, applied_status=cleaned["applied_status"],
+                      applied_doses_json=cleaned["applied_doses"], actual_yield_t_ha=cleaned["actual_yield_t_ha"],
+                      issues_json=cleaned["issues"], retest_json=cleaned["retest"], rating=cleaned["rating"],
+                      verified=verified, simulated=bool(b.get("simulated", False)))
+        db.session.add(fb)
+        db.session.commit()
+
+        if verified:
+            region_key = adaptive.region_key_for((rec.inputs_json or {}).get("district"))
+            adaptive.recompute_calibration(rec.crop, region_key)
+
+        return jsonify(id=fb.id, verified=verified, flagged_outlier=flagged_outlier,
+                       note=None if verified else "Thanks - this was saved, but needs a retest or yield figure to count toward recalibration.")
+
+    @app.get("/api/feedback/summary")
+    def feedback_summary():
+        if not C.FEATURE_FEEDBACK:
+            return jsonify(available=False)
+        crop, district = request.args.get("crop"), request.args.get("district")
+        q = Feedback.query.join(Recommendation, Feedback.rec_id == Recommendation.id).filter(Feedback.verified == True)
+        if crop:
+            q = q.filter(Recommendation.crop == crop)
+        rows = q.all()
+        if district:
+            region_key = adaptive.region_key_for(district)
+            rows = [f for f in rows if adaptive.region_key_for((db.session.get(Recommendation, f.rec_id).inputs_json or {}).get("district")) == region_key]
+        ratings = [f.rating for f in rows if f.rating is not None]
+        yields = [f.actual_yield_t_ha for f in rows if f.actual_yield_t_ha is not None]
+        # Anonymised aggregates only - never the raw per-farmer rows.
+        return jsonify(available=True, n_reports=len(rows),
+                       avg_rating=round(sum(ratings) / len(ratings), 2) if ratings else None,
+                       avg_actual_yield_t_ha=round(sum(yields) / len(yields), 2) if yields else None)
+
+    @app.post("/api/admin/recalibrate")
+    def admin_recalibrate():
+        token = request.headers.get("X-Admin-Token") or (request.get_json(silent=True) or {}).get("token")
+        if not C.ADMIN_TOKEN or token != C.ADMIN_TOKEN:
+            return jsonify(error="unauthorized"), 401
+        pairs = db.session.query(Recommendation.crop, Feedback.rec_id).join(Feedback, Feedback.rec_id == Recommendation.id).filter(Feedback.verified == True).all()
+        seen = set()
+        updated = []
+        for crop, rec_id in pairs:
+            rec = db.session.get(Recommendation, rec_id)
+            region_key = adaptive.region_key_for((rec.inputs_json or {}).get("district"))
+            key = (crop, region_key)
+            if key in seen:
+                continue
+            seen.add(key)
+            row = adaptive.recompute_calibration(crop, region_key)
+            updated.append({"crop": crop, "region_key": region_key, "n_reports": row.n_reports})
+        return jsonify(updated=updated)
 
     return app
 

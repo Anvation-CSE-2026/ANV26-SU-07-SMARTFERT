@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: smartfert-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn "app:create_app()" --workers 2 --timeout 120
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      # Persistent storage: the default (unset) falls back to a local sqlite
+      # file, which does NOT survive a redeploy on Render's free plan. Add a
+      # Render PostgreSQL instance and set this to its connection string for
+      # History/Feedback/Calibration data to persist.
+      - key: DATABASE_URL
+        sync: false
+      # Required to call POST /api/admin/recalibrate; leave unset to disable it.
+      - key: ST01_ADMIN_TOKEN
+        sync: false
+      # Optional: only needed if FEATURE_CHAT is turned on below.
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: FEATURE_HISTORY
+        value: "true"
+      - key: FEATURE_FEEDBACK
+        value: "true"
+      - key: FEATURE_CHAT
+        value: "false"
+      - key: FEATURE_SATELLITE
+        value: "false"

@@ -48,6 +48,14 @@ def test_fallback_without_any_api_key(monkeypatch):
     assert "20" in result["reply"] or "30" in result["reply"]
 
 
+def test_cost_question_is_not_misread_as_a_dose_question():
+    # Found via live testing: "how much will this COST" was matching the
+    # dose-range ("how_much") intent instead of "cost", because both share
+    # the generic phrase "how much".
+    assert chat.match_intent("How much will this cost?") == "cost"
+    assert chat.match_intent("How much nitrogen should I apply?") == "how_much"
+
+
 def test_numbers_outside_context_are_rejected():
     context = "N dose range: 20-30 kg/ha, safe cap 40 kg/ha"
     assert chat.numbers_subset_preserved(context, "Apply 20 kg/ha")  # 20 is in the context

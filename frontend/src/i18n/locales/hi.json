@@ -377,5 +377,13 @@
     "avgSustainability": "औसत टिकाऊपन",
     "avgConfidence": "औसत विश्वसनीयता",
     "recommendationCount": "सलाह"
+  },
+  "chat": {
+    "title": "सहायक से पूछें",
+    "disclaimer": "AI सहायक: मार्गदर्शन, गारंटी नहीं",
+    "sourceTag": "आपकी सलाह #{{id}} के आधार पर",
+    "greeting": "मुझसे पूछें कि कोई पोषक तत्व कम क्यों है, कितना डालना है, या कब डालना है।",
+    "inputPlaceholder": "अपना सवाल लिखें…",
+    "send": "भेजें"
   }
 }

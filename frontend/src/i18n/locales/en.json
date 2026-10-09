@@ -377,5 +377,13 @@
     "avgSustainability": "Avg. sustainability",
     "avgConfidence": "Avg. confidence",
     "recommendationCount": "Recommendations"
+  },
+  "chat": {
+    "title": "Ask the assistant",
+    "disclaimer": "AI assistant: guidance, not guaranteed",
+    "sourceTag": "Based on your recommendation #{{id}}",
+    "greeting": "Ask me things like why a nutrient is low, how much to apply, or when to apply it.",
+    "inputPlaceholder": "Type your question…",
+    "send": "Send"
   }
 }

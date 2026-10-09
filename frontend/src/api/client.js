@@ -190,4 +190,26 @@ export const api = {
       () => http.post("/api/fields", payload),
       () => { throw new Error("Can't save a field offline."); }
     ),
+
+  // --- Chat: the backend's own fallback (template) path already needs no
+  // LLM key, so this is genuinely useful even without ANTHROPIC_API_KEY set -
+  // but it still needs a real backend to ground answers in a saved
+  // recommendation's numbers. Mock mode degrades to a clear "needs a
+  // connection" reply rather than faking a parallel Q&A engine.
+  postChat: (payload) =>
+    callOrMock(
+      () => http.post("/api/chat", payload),
+      () => ({
+        available: false,
+        reply: "The chat assistant needs a connection to the server to answer questions about your recommendation.",
+        language: payload.language || "en",
+        fallback: true,
+      })
+    ),
+
+  getChatSuggestions: (params) =>
+    callOrMock(
+      () => http.get("/api/chat/suggestions", { params }),
+      () => ({ available: false, suggestions: [] })
+    ),
 };

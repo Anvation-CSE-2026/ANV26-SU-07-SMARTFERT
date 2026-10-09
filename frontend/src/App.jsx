@@ -9,6 +9,7 @@ import Recommendation from "./pages/Recommendation";
 import Explain from "./pages/Explain";
 import Comparison from "./pages/Comparison";
 import Season from "./pages/Season";
+import { ChatButton } from "./components/chat/ChatButton";
 
 export default function App() {
   const { i18n } = useTranslation();
@@ -38,6 +39,7 @@ export default function App() {
         <footer className="no-print text-center text-xs text-green-700/50 py-6">
           🌱 {i18n.t("common.appName")} — {i18n.t("common.tagline")}
         </footer>
+        <ChatButton />
       </div>
     </HashRouter>
   );

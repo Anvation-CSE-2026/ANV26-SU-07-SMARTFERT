@@ -108,11 +108,16 @@ def context_to_text(ctx):
 
 
 # ---------------- intent matching (keyword-based, no LLM needed) ----------------
+# "cost" is checked before "how_much": a bare "how much" is ambiguous ("how much
+# will this cost?" vs "how much nitrogen?"), so how_much's keywords are scoped to
+# dose-specific phrasing rather than the generic "how much"/"how many" alone -
+# that way a cost question can never tie with (let alone lose to) a dose question.
 INTENT_KEYWORDS = {
-    "why_low": ["why", "low", "deficient", "deficiency"],
-    "how_much": ["how much", "how many", "dose", "quantity", "kg"],
-    "when_to_apply": ["when", "timing", "apply", "basal", "top-dress", "top dress"],
     "cost": ["cost", "price", "rupee", "₹", "expensive", "cheap"],
+    "why_low": ["why", "low", "deficient", "deficiency"],
+    "how_much": ["how much nitrogen", "how much phosphorus", "how much potassium", "how much fertilizer",
+                 "how much dose", "how many kg", "dose", "quantity", "kg/ha", "kg per"],
+    "when_to_apply": ["when", "timing", "apply", "basal", "top-dress", "top dress"],
     "alternatives": ["alternative", "option", "other plan", "instead"],
     "rain_delay": ["rain", "wait", "delay", "postpone"],
     "sustainability": ["sustainable", "sustainability", "environment", "emission", "green"],
@@ -124,12 +129,10 @@ INTENT_KEYWORDS = {
 
 def match_intent(message):
     msg = message.lower()
-    best, best_score = "out_of_scope", 0
     for intent, kws in INTENT_KEYWORDS.items():
-        score = sum(1 for kw in kws if kw in msg)
-        if score > best_score:
-            best, best_score = intent, score
-    return best if best_score > 0 else "out_of_scope"
+        if any(kw in msg for kw in kws):
+            return intent
+    return "out_of_scope"
 
 
 # ---------------- per-language fallback templates (no LLM) ----------------
